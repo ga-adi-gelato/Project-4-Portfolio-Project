@@ -24,7 +24,7 @@ public class PracticeActivity extends AppCompatActivity {
 
     private int userCount = 0;
     private int realCount = 0;
-    private int timeDelay = 3000;
+    private int timeDelay = 1000;
 
     private Context context = PracticeActivity.this;
     private Retrofit retrofit;
@@ -44,6 +44,10 @@ public class PracticeActivity extends AppCompatActivity {
         mYourNum = (TextView) findViewById(R.id.yourNum);
         mRealCount = findViewById(R.id.realLayout);
         mCard = (ImageView) findViewById(R.id.card);
+        mRealNum = (TextView) findViewById(R.id.realNum);
+
+        APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
+        APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
 
         handler = new Handler();
         handler.postDelayed(cardCycle, timeDelay);
@@ -90,8 +94,7 @@ public class PracticeActivity extends AppCompatActivity {
     {
         public void run()
         {
-            APIFunctions.drawCard(retrofit,context,mCard);
-
+            APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
             handler.postDelayed(this, timeDelay);
         }
     };
