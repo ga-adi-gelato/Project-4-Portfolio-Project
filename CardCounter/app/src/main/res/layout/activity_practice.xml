@@ -91,7 +91,6 @@
         android:layout_above="@+id/bottomButtons">
         <ImageView
             android:id="@+id/card"
-            android:src="@mipmap/qh"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:elevation="12dp"
