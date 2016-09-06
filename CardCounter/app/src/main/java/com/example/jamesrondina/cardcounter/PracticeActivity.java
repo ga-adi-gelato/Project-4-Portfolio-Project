@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jamesrondina.cardcounter.models.Card;
-import com.squareup.picasso.Picasso;
-
 import retrofit2.Retrofit;
 
 public class PracticeActivity extends AppCompatActivity {
@@ -88,6 +85,15 @@ public class PracticeActivity extends AppCompatActivity {
         mUp.setOnClickListener(listener);
         mDown.setOnClickListener(listener);
         mShow.setOnClickListener(listener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.i("Practice", "onDestroy: Quitting");
+
+        handler.removeCallbacks(cardCycle);
     }
 
     private Runnable cardCycle = new Runnable()
