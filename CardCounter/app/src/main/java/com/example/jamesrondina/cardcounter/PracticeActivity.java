@@ -1,16 +1,19 @@
 package com.example.jamesrondina.cardcounter;
 
-import android.os.AsyncTask;
+import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.jamesrondina.cardcounter.models.Card;
+import com.squareup.picasso.Picasso;
+
+import retrofit2.Retrofit;
 
 public class PracticeActivity extends AppCompatActivity {
 
@@ -18,22 +21,33 @@ public class PracticeActivity extends AppCompatActivity {
     private ImageView mCard;
     private TextView mYourNum, mRealNum;
     private View mRealCount;
+
     private int userCount = 0;
     private int realCount = 0;
+    private int timeDelay = 3000;
+
+    private Context context = PracticeActivity.this;
+    private Retrofit retrofit;
+
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
 
-        int timeDelay = 1000;
+        retrofit = APIFunctions.retrofitInit(context);
 
         mUp = (Button) findViewById(R.id.increaseButton);
         mDown = (Button) findViewById(R.id.decreaseButton);
         mShow = (Button) findViewById(R.id.showButton);
         mYourNum = (TextView) findViewById(R.id.yourNum);
         mRealCount = findViewById(R.id.realLayout);
-        
+        mCard = (ImageView) findViewById(R.id.card);
+
+        handler = new Handler();
+        handler.postDelayed(cardCycle, timeDelay);
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,4 +85,15 @@ public class PracticeActivity extends AppCompatActivity {
         mDown.setOnClickListener(listener);
         mShow.setOnClickListener(listener);
     }
+
+    private Runnable cardCycle = new Runnable()
+    {
+        public void run()
+        {
+            APIFunctions.drawCard(retrofit,context,mCard);
+
+            handler.postDelayed(this, timeDelay);
+        }
+    };
+
 }
