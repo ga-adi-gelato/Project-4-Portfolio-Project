@@ -14,6 +14,9 @@ public class Deck {
     @SerializedName("deck_id")
     @Expose
     private String deckId;
+    @SerializedName("shuffled")
+    @Expose
+    private Boolean shuffled;
     @SerializedName("cards")
     @Expose
     private List<Card> cards = new ArrayList<Card>();
@@ -37,6 +40,24 @@ public class Deck {
      */
     public void setRemaining(Integer remaining) {
         this.remaining = remaining;
+    }
+
+    /**
+     *
+     * @return
+     *     The shuffled
+     */
+    public Boolean getShuffled() {
+        return shuffled;
+    }
+
+    /**
+     *
+     * @param shuffled
+     *     The shuffled
+     */
+    public void setShuffled(Boolean shuffled) {
+        this.shuffled = shuffled;
     }
 
     /**
