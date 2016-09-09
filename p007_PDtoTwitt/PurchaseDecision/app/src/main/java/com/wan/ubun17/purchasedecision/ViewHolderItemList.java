@@ -24,6 +24,6 @@ public class ViewHolderItemList extends RecyclerView.ViewHolder {
         ebayAverPrice = (TextView) itemView.findViewById(R.id.ebayAverPrice);
         ebayMinPrice = (TextView) itemView.findViewById(R.id.ebayMinPrice);
         ebayMaxPrice = (TextView) itemView.findViewById(R.id.ebayMaxPrice);
-        buTwitter = (Button) itemView.findViewById(R.id.buTwitter);
+        buTwitter = (Button) itemView.findViewById(R.id.buTwitterRecycle);
     }
 }

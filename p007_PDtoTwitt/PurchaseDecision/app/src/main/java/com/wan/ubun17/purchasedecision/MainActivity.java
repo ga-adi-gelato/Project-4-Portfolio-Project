@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
     }//End of onStart
 
-
     class AsycAPIcalling extends AsyncTask<String, Double, List<Item>> {
 
         @Override
@@ -136,18 +135,23 @@ public class MainActivity extends AppCompatActivity {
             SingleWarSearch singleWarSearch = getInstance();
             ArrayList<Item> walItems = singleWarSearch.getItemList();
 
-            for (int i = 0; i < walItems.size(); i ++) {
-                String searTerm = walItems.get(i).getName();
-                EbayAPI ebayCall = new EbayAPI(searTerm, i);
-                ebayCall.EbayCall();
+            if (walItems == null) {
+                Log.d("walitmes", "nulNulNUl---------------------------------------");
+            } else {
+                for (int i = 0; i < walItems.size(); i ++) {
+                    String searTerm = walItems.get(i).getName();
+                    EbayAPI ebayCall = new EbayAPI(searTerm, i);
+                    ebayCall.EbayCall();
 
-                try {
-                    Thread.sleep(255);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    try {
+                        Thread.sleep(255);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    // singleWarSearch
                 }
-               // singleWarSearch
             }
+
             return null;
         }
 
@@ -167,9 +171,14 @@ public class MainActivity extends AppCompatActivity {
 
 //            mItems.clear();
 //            mItems.addAll(dataItem);
-            mEbayExamples.clear();
-            mEbayExamples.addAll(dataEbay);
-            adapter.notifyDataSetChanged();
+            if (dataEbay == null) {
+                Log.d("dataEbay", "nulnulnulnulnulnul-------------------------------");
+            } else {
+                mEbayExamples.clear();
+                mEbayExamples.addAll(dataEbay);
+                adapter.notifyDataSetChanged();
+            }
+
         }
     }// End of EbayAsyncCalling
 
@@ -195,8 +204,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<Statuses> statuses) {
             ArrayList<String> twittArrForListView = new ArrayList<String>();
-            int twittSize = statuses.size();
+
+            //int twittSize = statuses.size();
             if (statuses != null) {
+                int twittSize = statuses.size();
                 for (int i = 0; i < twittSize; i ++ ) {
                     String stEachTwitt = statuses.get(i).getText();
                     twittArrForListView.add(stEachTwitt);

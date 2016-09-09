@@ -1,15 +1,18 @@
 package com.wan.ubun17.purchasedecision;
 
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+import com.wan.ubun17.purchasedecision.APIcall.TwitterAPI;
 import com.wan.ubun17.purchasedecision.ResponseObject.Ebay.Example;
+import com.wan.ubun17.purchasedecision.ResponseObject.TwitterObject.Statuses;
 import com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.Item;
 import com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.SingleWarSearch;
-import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -21,7 +24,8 @@ import java.util.Collections;
 public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Item> mItems;
     ArrayList<Example> mEbayExample;
-    String stWalPrice, stEbayMin, stEbayMax, stEbayAev;
+    String stWalPrice, stEbayMin, stEbayMax, stEbayAev, stItemName;
+    ArrayList<Statuses> twittArr;
 
     public AdapterRecyItem(ArrayList<Item> args, ArrayList<Example> examArr) {
         mItems = args;
@@ -39,7 +43,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderItemList holder, int position) {
+    public void onBindViewHolder(final ViewHolderItemList holder, int position) {
 
         if (mEbayExample.get(position) != null) {
             int numItem = mEbayExample.get(position)
@@ -81,12 +85,15 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         thumbURL = warSearch.getItemList().get(position).getThumbnailImage();
         thumbURLtwo = "https://i5.walmartimages.com/asr/8e0c3fb1-673b-4b29-9b8a-46cae3e0d917_1.c5d745d0e28796c3f8b53893ea6e064c.jpeg?odnHeight=100&odnWidth=100&odnBg=FFFFFF";
 
-        holder.tvItemName.setText((CharSequence) mItems.get(position).getName());
+        stItemName = mItems.get(position).getName();
+        holder.tvItemName.setText(stItemName);
         holder.tvWalPrice.setText((CharSequence) mItems.get(position).getSalePrice().toString());
 
         holder.ebayAverPrice.setText(stEbayAev);
         holder.ebayMinPrice.setText(stEbayMin);
         holder.ebayMaxPrice.setText(stEbayMax);
+/////////////////////////////
+        //holder.buTwitter.setText("asdfasdfasdfasdf");
 
         Picasso.with(holder.imageThumb.getContext()).load(thumbURL).resize(100, 100)
                 .into(holder.imageThumb);
@@ -96,11 +103,13 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
             public  void onClick(View view) {
 //                SingleWarSearch warSearch1 = SingleWarSearch.getInstance();
 //                String searchTerm = warSearch.getQuery();
-//
-//                TwitterAPI testTwett = new TwitterAPI("apple ipad air md785ll/a");
-//                testTwett.TwitterCalling();
 
-                Log.d("twitter bu", "clicked");
+//                TwitterAPI testTwett = new TwitterAPI(stItemName);
+//                testTwett.TwitterCalling();
+                TwitterAsyncCalling twittCalling = new TwitterAsyncCalling(holder);
+                twittCalling.execute(stItemName);
+
+                Log.d("twitter bu", "i am clikced");
             }
         };
 
@@ -110,6 +119,37 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     @Override
     public int getItemCount() {
         return mItems.size();
+    }
+
+    class TwitterAsyncCalling extends AsyncTask<String, Void, ArrayList<Statuses>> {
+
+        ViewHolderItemList holder;
+
+        public TwitterAsyncCalling(ViewHolderItemList holder) {
+            this.holder = holder;
+        }
+
+        @Override
+        protected ArrayList<Statuses> doInBackground(String... strings) {
+            TwitterAPI testTwett = new TwitterAPI(strings[0]);
+            testTwett.TwitterCalling();
+            ArrayList<Statuses> returnedStat = testTwett.getStatueses();
+            //twittArr = returnedStat;
+            if (returnedStat != null) {
+                int num = returnedStat.size();
+                for (int i = 0; i < num; i++) {
+                    String testST = returnedStat.get(i).getText();
+                    Log.d("twitt tt ", "tttttttttttttttttttttttttttttt   " + testST);
+                }
+            }
+            return returnedStat;
+        }//End of doInBackGround
+
+        @Override
+        protected void onPostExecute(ArrayList<Statuses> statuses) {
+            String stTwitNum = String.valueOf(statuses.size());
+            holder.buTwitter.setText("Twitt # :" + stTwitNum);
+        }
     }
 
 }
