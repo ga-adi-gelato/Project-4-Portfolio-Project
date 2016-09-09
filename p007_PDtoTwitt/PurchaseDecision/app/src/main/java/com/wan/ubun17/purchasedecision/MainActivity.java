@@ -1,0 +1,239 @@
+package com.wan.ubun17.purchasedecision;
+
+import android.content.DialogInterface;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.wan.ubun17.purchasedecision.APIcall.EbayAPI;
+import com.wan.ubun17.purchasedecision.APIcall.TwitterAPI;
+import com.wan.ubun17.purchasedecision.APIcall.WalMartAPI;
+import com.wan.ubun17.purchasedecision.ResponseObject.Ebay.Example;
+import com.wan.ubun17.purchasedecision.ResponseObject.TwitterObject.Statuses;
+import com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.Item;
+import com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.SingleWarSearch;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.SingleWarSearch.getInstance;
+
+public class MainActivity extends AppCompatActivity {
+    RecyclerView mRecyclerView;
+    AdapterRecyItem adapter;
+    ArrayList<Item> mItems;
+    ArrayList<Example> mEbayExamples;
+    ArrayList<Statuses> twittArr;
+
+    EditText inputItem;
+    Button buItem, buTwittSearch;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycleViewItemList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+
+        mItems = new ArrayList<>();
+        mEbayExamples = new ArrayList<>();
+        adapter = new AdapterRecyItem(mItems, mEbayExamples);
+        mRecyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        buItem = (Button) findViewById(R.id.buSearch);
+        buTwittSearch = (Button) findViewById(R.id.buTwittSearch) ;
+
+        buItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputItem = (EditText) findViewById(R.id.inputSearch);
+
+                String stSearchItem = inputItem.getText().toString();
+                AsycAPIcalling asycAPIcalling = new AsycAPIcalling();
+                asycAPIcalling.execute(stSearchItem);
+
+                EbayAsyncCalling ebayCalling = new EbayAsyncCalling();
+                ebayCalling.execute("calling");
+            }
+        });//End of button
+
+        buTwittSearch.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                inputItem = (EditText) findViewById(R.id.inputSearch);
+                String stSearchItem = inputItem.getText().toString();
+
+                TwitterAsyncCalling twittCalling = new TwitterAsyncCalling();
+                twittCalling.execute(stSearchItem);
+            }
+        });
+
+    }//End of onStart
+
+
+    class AsycAPIcalling extends AsyncTask<String, Double, List<Item>> {
+
+        @Override
+        protected List<Item> doInBackground(String... strings) {
+            WalMartAPI walCalling = new WalMartAPI(strings[0]);
+            walCalling.WalMartCall();
+
+            SingleWarSearch singleWarSearch = getInstance();
+            ArrayList<Item> walItems = singleWarSearch.getItemList();
+
+            if (walItems != null) {
+                for (int i = 0; i < walItems.size(); i ++) {
+                    singleWarSearch.getEbayExampleList().add(null);
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Double... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(List<Item> items) {
+            SingleWarSearch singleWarSearch = getInstance();
+            String strWal = singleWarSearch.getQuery();
+
+            final ArrayList<Item> dataItem = singleWarSearch.getItemList();
+            final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();
+
+            if (singleWarSearch.getQuery() == null) {
+                Log.d("Walmartccc", "nulnulnulnul");
+            } else {
+                mItems.clear();
+                mItems.addAll(dataItem);
+                mEbayExamples.clear();
+                mEbayExamples.addAll(dataEbay);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }//End of AsycAPIcalling
+
+    class EbayAsyncCalling extends  AsyncTask<String, Double, List<Item>> {
+
+        @Override
+        protected List<Item> doInBackground(String... strings) {
+            SingleWarSearch singleWarSearch = getInstance();
+            ArrayList<Item> walItems = singleWarSearch.getItemList();
+
+            for (int i = 0; i < walItems.size(); i ++) {
+                String searTerm = walItems.get(i).getName();
+                EbayAPI ebayCall = new EbayAPI(searTerm, i);
+                ebayCall.EbayCall();
+
+                try {
+                    Thread.sleep(255);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+               // singleWarSearch
+            }
+            return null;
+        }
+
+        @Override
+        protected  void onProgressUpdate(Double... values) {
+            super.onProgressUpdate(values);
+
+        }
+
+        @Override
+        protected void onPostExecute(List<Item> items) {
+            SingleWarSearch singleWarSearch = getInstance();
+            String strWal = singleWarSearch.getQuery();
+
+            final ArrayList<Item> dataItem = singleWarSearch.getItemList();
+            final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();
+
+//            mItems.clear();
+//            mItems.addAll(dataItem);
+            mEbayExamples.clear();
+            mEbayExamples.addAll(dataEbay);
+            adapter.notifyDataSetChanged();
+        }
+    }// End of EbayAsyncCalling
+
+    class TwitterAsyncCalling extends AsyncTask<String, Void, ArrayList<Statuses>> {
+
+        @Override
+        protected ArrayList<Statuses> doInBackground(String... strings) {
+
+            TwitterAPI testTwett = new TwitterAPI(strings[0]);
+            testTwett.TwitterCalling();
+            ArrayList<Statuses> returnedStat = testTwett.getStatueses();
+            twittArr = returnedStat;
+            if (returnedStat != null) {
+                int num = returnedStat.size();
+                for (int i = 0; i < num; i++) {
+                    String testST = returnedStat.get(i).getText();
+                    Log.d("twitt tt ", "tttttttttttttttttttttttttttttt   " + testST);
+                }
+            }
+            return returnedStat;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Statuses> statuses) {
+            ArrayList<String> twittArrForListView = new ArrayList<String>();
+            int twittSize = statuses.size();
+            if (statuses != null) {
+                for (int i = 0; i < twittSize; i ++ ) {
+                    String stEachTwitt = statuses.get(i).getText();
+                    twittArrForListView.add(stEachTwitt);
+                }
+            } else {
+                twittArrForListView.add("There is no twitt");
+            }
+
+            final CharSequence[] Twitts = twittArrForListView
+                    .toArray(new String[twittArrForListView.size()]);
+
+            AlertDialog.Builder twittDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            twittDialogBuilder.setTitle("Twits");
+
+            twittDialogBuilder.setItems(Twitts, new DialogInterface.OnClickListener(){
+                public  void onClick(DialogInterface dialog, int item) {
+                    String anytext = "asdfasdfasf";
+                }
+            });
+            AlertDialog twitDialogObject = twittDialogBuilder.create();
+            twitDialogObject.show();
+        }
+    }//End of TwitterAsyncCalling...
+
+    protected void showErrorMessage(String str) {
+        AlertDialog.Builder errorMessageBuilder = new AlertDialog.Builder(this);
+        errorMessageBuilder.setTitle(str);
+        errorMessageBuilder.setCancelable(true)
+                .setNeutralButton("Click to remove",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton){
+                                finish();
+                            }
+                        });
+
+        AlertDialog errMessageObject = errorMessageBuilder.create();
+        errMessageObject.show();//
+    }
+
+}
