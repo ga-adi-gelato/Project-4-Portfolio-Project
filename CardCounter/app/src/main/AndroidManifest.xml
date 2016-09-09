@@ -22,7 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".PracticeActivity" />
-        <activity android:name=".BlackJackActivity"></activity>
+        <activity android:name=".BlackJackActivity" />
+        <activity
+            android:name=".TutorialActivity"
+            android:label="@string/title_activity_tutorial"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
