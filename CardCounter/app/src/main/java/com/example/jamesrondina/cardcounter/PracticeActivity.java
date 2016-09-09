@@ -20,7 +20,6 @@ public class PracticeActivity extends AppCompatActivity {
     private View mRealCount;
 
     private int userCount = 0;
-    private int realCount = 0;
     private int timeDelay = 1000;
 
     private Context context = PracticeActivity.this;
@@ -47,7 +46,9 @@ public class PracticeActivity extends AppCompatActivity {
         APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
 
         handler = new Handler();
-        handler.postDelayed(cardCycle, timeDelay);
+        //handler.postDelayed(cardCycle, timeDelay);
+
+        //button row functionality
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -78,6 +79,13 @@ public class PracticeActivity extends AppCompatActivity {
                         else {
                             mRealCount.setVisibility(View.INVISIBLE);
                         }
+
+                        if(mRealCount.getVisibility() == View.INVISIBLE) {
+                            mShow.setText("SHOW COUNT");
+                        }
+                        else {
+                            mShow.setText("HIDE COUNT");
+                        }
                         break;
                 }
             }
@@ -85,6 +93,22 @@ public class PracticeActivity extends AppCompatActivity {
         mUp.setOnClickListener(listener);
         mDown.setOnClickListener(listener);
         mShow.setOnClickListener(listener);
+
+        //TODO: When shoe is empty, create a dialog box to show score, and give option to quit or try again
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        //start the loop
+        handler.postDelayed(cardCycle, timeDelay);
+    }
+    //stop the loop when you leave the activity
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Practice", "onPause: Quitting");
+        handler.removeCallbacks(cardCycle);
     }
 
     @Override
@@ -92,7 +116,6 @@ public class PracticeActivity extends AppCompatActivity {
         super.onDestroy();
 
         Log.i("Practice", "onDestroy: Quitting");
-
         handler.removeCallbacks(cardCycle);
     }
 

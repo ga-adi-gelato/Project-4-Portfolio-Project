@@ -128,12 +128,17 @@ public class APIFunctions {
 
                 int currentCount = Integer.parseInt(textView.getText().toString());
 
-
                 textView.setText(String.valueOf(currentCount + updateRealCount(card[0].getValue())));
+
+                String realCount = textView.getText().toString();
+                if((Integer.parseInt(realCount)) > 0 ) {
+                    textView.setText("+" + realCount);
+                }
 
             }
 
             @Override
+
             public void onFailure(Call<Deck> call, Throwable t) {
                 t.printStackTrace();
 
@@ -156,6 +161,8 @@ public class APIFunctions {
     }
 
     public static int updateRealCount(String value){
+
+        //define values according to hi-lo method
 
         switch (value){
             case ("2"):
