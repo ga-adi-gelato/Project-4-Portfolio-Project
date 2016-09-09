@@ -6,6 +6,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.wan.ubun17.purchasedecision.ResponseObject.TwitterObject.Statuses;
+
+import java.util.ArrayList;
+
 /**
  * Created by ubun17 on 8/29/16.
  */
@@ -13,6 +17,7 @@ public class ViewHolderItemList extends RecyclerView.ViewHolder {
     public TextView tvItemName,tvWalPrice, ebayMinPrice, ebayMaxPrice, ebayAverPrice;
     public ImageView imageThumb;
     public Button buTwitter;
+    public ArrayList<Statuses> twittList;
 
     public ViewHolderItemList(View itemView) {
         super(itemView);

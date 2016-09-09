@@ -1,6 +1,8 @@
 package com.wan.ubun17.purchasedecision;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,12 +26,13 @@ import java.util.Collections;
 public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Item> mItems;
     ArrayList<Example> mEbayExample;
-    String stWalPrice, stEbayMin, stEbayMax, stEbayAev, stItemName;
-    ArrayList<Statuses> twittArr;
+    String stEbayMin, stEbayMax, stEbayAev, stItemName;
+    Context mContext;
 
-    public AdapterRecyItem(ArrayList<Item> args, ArrayList<Example> examArr) {
+    public AdapterRecyItem(ArrayList<Item> args, ArrayList<Example> examArr, Context context) {
         mItems = args;
         mEbayExample = examArr;
+        mContext = context;
     }
 
     @Override
@@ -71,13 +74,8 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
 
 
         } else {
-            stEbayMin = "NA";
-            stEbayMax = "NA";
-            stEbayAev = "NA";
+            stEbayMin = "NA";stEbayMax = "NA"; stEbayAev = "NA";
         }
-
-       Log.d("The price", "=============================    "+"AdapterRecyltem");
-
 
         String thumbURL, thumbURLtwo;
 
@@ -92,24 +90,30 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         holder.ebayAverPrice.setText(stEbayAev);
         holder.ebayMinPrice.setText(stEbayMin);
         holder.ebayMaxPrice.setText(stEbayMax);
-/////////////////////////////
-        //holder.buTwitter.setText("asdfasdfasdfasdf");
 
         Picasso.with(holder.imageThumb.getContext()).load(thumbURL).resize(100, 100)
                 .into(holder.imageThumb);
 
+        TwitterAsyncCalling twittCalling = new TwitterAsyncCalling(holder);
+        twittCalling.execute(stItemName);
+
         View.OnClickListener buTwitter = new View.OnClickListener(){
             @Override
             public  void onClick(View view) {
-//                SingleWarSearch warSearch1 = SingleWarSearch.getInstance();
-//                String searchTerm = warSearch.getQuery();
 
-//                TwitterAPI testTwett = new TwitterAPI(stItemName);
-//                testTwett.TwitterCalling();
-                TwitterAsyncCalling twittCalling = new TwitterAsyncCalling(holder);
-                twittCalling.execute(stItemName);
+                String twitFirst = String.valueOf(holder.twittList.get(0));
 
-                Log.d("twitter bu", "i am clikced");
+                AlertDialog.Builder twittDialogBuilder = new AlertDialog.Builder(mContext);
+                twittDialogBuilder.setTitle("Twitts");
+
+//                twittDialogBuilder.setItems(Twitts, new DialogInterface.OnClickListener(){
+//                    public  void onClick(DialogInterface dialog, int item) {
+//                        String anytext = "asdfasdfasf";
+//                    }
+//                });
+//                AlertDialog twitDialogObject = twittDialogBuilder.create();
+//                twitDialogObject.show();
+                Log.d("twitter bu", twitFirst);
             }
         };
 
@@ -134,14 +138,15 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
             TwitterAPI testTwett = new TwitterAPI(strings[0]);
             testTwett.TwitterCalling();
             ArrayList<Statuses> returnedStat = testTwett.getStatueses();
-            //twittArr = returnedStat;
+
             if (returnedStat != null) {
                 int num = returnedStat.size();
                 for (int i = 0; i < num; i++) {
                     String testST = returnedStat.get(i).getText();
-                    Log.d("twitt tt ", "tttttttttttttttttttttttttttttt   " + testST);
+                    Log.d("twitt tt ", "tttttttttttttttt   " + testST);
                 }
             }
+
             return returnedStat;
         }//End of doInBackGround
 
@@ -149,6 +154,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         protected void onPostExecute(ArrayList<Statuses> statuses) {
             String stTwitNum = String.valueOf(statuses.size());
             holder.buTwitter.setText("Twitt # :" + stTwitNum);
+            holder.twittList = statuses;
         }
     }
 

@@ -47,9 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         mItems = new ArrayList<>();
         mEbayExamples = new ArrayList<>();
-        adapter = new AdapterRecyItem(mItems, mEbayExamples);
+        adapter = new AdapterRecyItem(mItems, mEbayExamples, this);
         mRecyclerView.setAdapter(adapter);
-
     }
 
     @Override
@@ -148,17 +147,14 @@ public class MainActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    // singleWarSearch
                 }
             }
-
             return null;
         }
 
         @Override
         protected  void onProgressUpdate(Double... values) {
             super.onProgressUpdate(values);
-
         }
 
         @Override
@@ -227,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                     String anytext = "asdfasdfasf";
                 }
             });
+
             AlertDialog twitDialogObject = twittDialogBuilder.create();
             twitDialogObject.show();
         }
