@@ -38,19 +38,26 @@ public class WalMartAPI {
 
         try {
             Response response = walMartClient.newCall(WalMartRequest).execute();
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-            String responseBody = response.body().string();
+            if (!response.isSuccessful())  throw new IOException("Unexpected code " + response);
+            if (!response.isSuccessful())  {
+                SingleWarSearch singleWarSearch = SingleWarSearch.getInstance();
+                singleWarSearch.setWalSingleton(null, null);
+                Log.d("Wal Mart", "Bad Request////////////////////////////////////////////");
+            } else {
+                String responseBody = response.body().string();
 
-            Gson gson = new Gson();
-            WalMartSearch walMartSearch = gson.fromJson(responseBody, WalMartSearch.class);
-            String sss = walMartSearch.getQuery();
+                Gson gson = new Gson();
+                WalMartSearch walMartSearch = gson.fromJson(responseBody, WalMartSearch.class);
+                String sss = walMartSearch.getQuery();
 
-            SingleWarSearch searResult = SingleWarSearch.getInstance();
-            searResult.setWalSingleton(walMartSearch.getQuery(), (ArrayList<Item>) walMartSearch.getItems());
+                SingleWarSearch searResult = SingleWarSearch.getInstance();
+                searResult.setWalSingleton(walMartSearch.getQuery(), (ArrayList<Item>) walMartSearch.getItems());
 
-            Log.d("Walin try Singleton",searResult.getQuery());
+                Log.d("Walin try Singleton",searResult.getQuery());
 
-            Log.d("Wal in try", sss);
+                Log.d("Wal in try", sss);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

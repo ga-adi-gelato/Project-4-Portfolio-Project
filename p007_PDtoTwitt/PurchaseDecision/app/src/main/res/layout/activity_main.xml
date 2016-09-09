@@ -10,14 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ubun17.purchasedecision.MainActivity">
 
-    <!--<ImageView-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:id="@+id/imaThumbMain"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"/>-->
+
     <EditText
         android:id="@+id/inputSearch"
         android:hint="Search Item"
@@ -31,11 +24,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to Search"
+        android:text="Search"
         android:id="@+id/buSearch"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_toLeftOf="@+id/buTwittSearch"
+        android:layout_toStartOf="@+id/buTwittSearch"/>
 
     <android.support.v7.widget.RecyclerView
         android:id ="@+id/recycleViewItemList"
@@ -47,6 +40,16 @@
         android:layout_below="@+id/inputSearch">
 
     </android.support.v7.widget.RecyclerView>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Twitt"
+        android:id="@+id/buTwittSearch"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 
 </RelativeLayout>
