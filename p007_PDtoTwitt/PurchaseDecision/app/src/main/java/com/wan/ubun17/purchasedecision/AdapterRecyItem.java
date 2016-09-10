@@ -1,6 +1,7 @@
 package com.wan.ubun17.purchasedecision;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 import com.wan.ubun17.purchasedecision.APIcall.TwitterAPI;
 import com.wan.ubun17.purchasedecision.ResponseObject.Ebay.Example;
@@ -26,8 +30,10 @@ import java.util.Collections;
 public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Item> mItems;
     ArrayList<Example> mEbayExample;
-    String stEbayMin, stEbayMax, stEbayAev, stItemName;
+    String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice;
     Context mContext;
+
+    DatabaseReference mFirebaseRootRef;
 
     public AdapterRecyItem(ArrayList<Item> args, ArrayList<Example> examArr, Context context) {
         mItems = args;
@@ -46,7 +52,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolderItemList holder, int position) {
+    public void onBindViewHolder(final ViewHolderItemList holder, final int position) {
 
         if (mEbayExample.get(position) != null) {
             int numItem = mEbayExample.get(position)
@@ -77,15 +83,19 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
             stEbayMin = "NA";stEbayMax = "NA"; stEbayAev = "NA";
         }
 
-        String thumbURL, thumbURLtwo;
+        final String thumbURL, thumbURLtwo;
 
         final SingleWarSearch warSearch = SingleWarSearch.getInstance();
         thumbURL = warSearch.getItemList().get(position).getThumbnailImage();
         thumbURLtwo = "https://i5.walmartimages.com/asr/8e0c3fb1-673b-4b29-9b8a-46cae3e0d917_1.c5d745d0e28796c3f8b53893ea6e064c.jpeg?odnHeight=100&odnWidth=100&odnBg=FFFFFF";
 
         stItemName = mItems.get(position).getName();
+        stWalPrice = mItems.get(position).getSalePrice().toString();
+        /////////////////////////////////////////////////////
+
+
         holder.tvItemName.setText(stItemName);
-        holder.tvWalPrice.setText((CharSequence) mItems.get(position).getSalePrice().toString());
+        holder.tvWalPrice.setText(stWalPrice);
 
         holder.ebayAverPrice.setText(stEbayAev);
         holder.ebayMinPrice.setText(stEbayMin);
@@ -100,24 +110,54 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         View.OnClickListener buTwitter = new View.OnClickListener(){
             @Override
             public  void onClick(View view) {
+                ArrayList<String> twittArrForListView = new ArrayList<String>();
 
-                String twitFirst = String.valueOf(holder.twittList.get(0));
+                ArrayList<Statuses> twittList = holder.twittList;
+
+                int twittSize = twittList.size();
+                if (twittSize == 0) {
+                    twittArrForListView.add("There is no twitt");
+                } else {
+                    for (int i = 0; i < twittSize; i ++) {
+                        twittArrForListView.add(twittList.get(i).getText());
+                    }
+                }
+
+                final CharSequence[] Twitts = twittArrForListView
+                        .toArray(new String[twittArrForListView.size()]);
 
                 AlertDialog.Builder twittDialogBuilder = new AlertDialog.Builder(mContext);
                 twittDialogBuilder.setTitle("Twitts");
 
-//                twittDialogBuilder.setItems(Twitts, new DialogInterface.OnClickListener(){
-//                    public  void onClick(DialogInterface dialog, int item) {
-//                        String anytext = "asdfasdfasf";
-//                    }
-//                });
-//                AlertDialog twitDialogObject = twittDialogBuilder.create();
-//                twitDialogObject.show();
-                Log.d("twitter bu", twitFirst);
+                twittDialogBuilder.setItems(Twitts, new DialogInterface.OnClickListener(){
+                    public  void onClick(DialogInterface dialog, int item) {
+                        String anytext = "asdfasdfasf";
+                    }
+                });
+                AlertDialog twitDialogObject = twittDialogBuilder.create();
+                twitDialogObject.show();
             }
         };
 
         holder.buTwitter.setOnClickListener(buTwitter);
+
+        View.OnClickListener buCart = new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String itemName, itemPrice, itemURL;
+                itemName = mItems.get(position).getName();
+                itemPrice = String.valueOf(mItems.get(position).getSalePrice());
+                itemURL = mItems.get(position).getThumbnailImage();
+
+                AdapterFireBase data = new AdapterFireBase(itemName, itemPrice, itemURL);
+                mFirebaseRootRef = FirebaseDatabase.getInstance().getReference();
+                final DatabaseReference firebaseMessageRef = mFirebaseRootRef.child("WalMartSCart");
+                firebaseMessageRef.push().setValue(data);
+                Toast.makeText(mContext, itemName+" To Cart",Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        holder.buToCart.setOnClickListener(buCart);
     }//End of onBindViewHolder
 
     @Override

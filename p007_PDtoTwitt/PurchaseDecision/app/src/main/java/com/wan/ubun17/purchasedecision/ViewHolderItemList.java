@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ViewHolderItemList extends RecyclerView.ViewHolder {
     public TextView tvItemName,tvWalPrice, ebayMinPrice, ebayMaxPrice, ebayAverPrice;
     public ImageView imageThumb;
-    public Button buTwitter;
+    public Button buTwitter, buToCart;
     public ArrayList<Statuses> twittList;
 
     public ViewHolderItemList(View itemView) {
@@ -29,6 +29,8 @@ public class ViewHolderItemList extends RecyclerView.ViewHolder {
         ebayAverPrice = (TextView) itemView.findViewById(R.id.ebayAverPrice);
         ebayMinPrice = (TextView) itemView.findViewById(R.id.ebayMinPrice);
         ebayMaxPrice = (TextView) itemView.findViewById(R.id.ebayMaxPrice);
+
         buTwitter = (Button) itemView.findViewById(R.id.buTwitterRecycle);
+        buToCart = (Button) itemView.findViewById(R.id.buSaveInCart);
     }
 }

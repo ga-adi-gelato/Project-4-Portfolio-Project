@@ -1,6 +1,7 @@
 package com.wan.ubun17.purchasedecision;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Statuses> twittArr;
 
     EditText inputItem;
-    Button buItem, buTwittSearch;
+    Button buItem, buTwittSearch, buToCart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         buItem = (Button) findViewById(R.id.buSearch);
-        buTwittSearch = (Button) findViewById(R.id.buTwittSearch) ;
+        buTwittSearch = (Button) findViewById(R.id.buTwittSearch);
+        buToCart = (Button) findViewById(R.id.buToCart);
 
         buItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
                 TwitterAsyncCalling twittCalling = new TwitterAsyncCalling();
                 twittCalling.execute(stSearchItem);
+            }
+        });
+
+        buToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToCart = new Intent(MainActivity.this, MmShoppingCart.class);
+                startActivity(intentToCart);
             }
         });
 

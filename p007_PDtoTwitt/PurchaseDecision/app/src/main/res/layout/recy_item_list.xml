@@ -118,4 +118,14 @@
         android:layout_alignRight="@+id/imaThumb"
         android:layout_alignEnd="@+id/imaThumb"/>
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To shopping cart"
+        android:id="@+id/buSaveInCart"
+        android:layout_alignTop="@+id/buTwitterRecycle"
+        android:layout_toRightOf="@+id/buTwitterRecycle"
+        android:layout_toEndOf="@+id/buTwitterRecycle"/>
+
 </RelativeLayout>
