@@ -23,92 +23,105 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView2"
-                    android:src="@mipmap/back" />
+                    android:id="@+id/dCard0"
+                    android:src="@mipmap/back"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView3"
+                    android:id="@+id/dCard1"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="105dp"/>
+                    android:layout_marginLeft="105dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView4"
+                    android:id="@+id/dCard2"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="120dp"/>
+                    android:layout_marginLeft="120dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/dCard3"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="135dp"/>
+                    android:layout_marginLeft="135dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView6"
+                    android:id="@+id/dCard4"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="150dp"/>
+                    android:layout_marginLeft="150dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView7"
+                    android:id="@+id/dCard5"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="165dp"/>
+                    android:layout_marginLeft="165dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView8"
+                    android:id="@+id/dCard6"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="180dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView9"
+                    android:id="@+id/dCard7"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="195dp"/>
+                    android:layout_marginLeft="195dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView10"
+                    android:id="@+id/dCard8"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="210dp"/>
+                    android:layout_marginLeft="210dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView11"
+                    android:id="@+id/dCard9"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="225dp"/>
+                    android:layout_marginLeft="225dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView12"
+                    android:id="@+id/dCard10"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="240dp"/>
+                    android:layout_marginLeft="240dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView13"
+                    android:id="@+id/dCard11"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="255dp"/>
+                    android:layout_marginLeft="255dp"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
-                    android:id="@+id/imageView14"
+                    android:id="@+id/dCard12"
                     android:src="@mipmap/qh"
-                    android:layout_marginLeft="270dp"/>
+                    android:layout_marginLeft="270dp"
+                    android:visibility="invisible" />
 
         </FrameLayout>
 
@@ -117,14 +130,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/dealerCards"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:id="@+id/dealerText">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Dealer Value: "
-                android:id="@+id/dvText"
+                android:id="@+id/dValue"
                 android:textColor="#FFFFFF"
                 android:shadowColor="#6E2626"
                 android:shadowDx="1"
@@ -139,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="0"
-                android:id="@+id/dvCount"
+                android:id="@+id/dNum"
                 android:textColor="#FFFFFF"
                 android:shadowColor="#6E2626"
                 android:shadowDx="1"
@@ -167,92 +182,105 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView15"
-                android:src="@mipmap/back" />
+                android:id="@+id/pCard0"
+                android:src="@mipmap/back"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView16"
+                android:id="@+id/pCard1"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="105dp" />
+                android:layout_marginLeft="105dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView17"
+                android:id="@+id/pCard2"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="120dp" />
+                android:layout_marginLeft="120dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView18"
+                android:id="@+id/pCard3"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="135dp" />
+                android:layout_marginLeft="135dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView19"
+                android:id="@+id/pCard4"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="150dp" />
+                android:layout_marginLeft="150dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView20"
+                android:id="@+id/pCard5"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="165dp" />
+                android:layout_marginLeft="165dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView21"
+                android:id="@+id/pCard6"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="180dp" />
+                android:layout_marginLeft="180dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView22"
+                android:id="@+id/pCard7"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="195dp" />
+                android:layout_marginLeft="195dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView23"
+                android:id="@+id/pCard8"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="210dp" />
+                android:layout_marginLeft="210dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView24"
+                android:id="@+id/pCard9"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="225dp" />
+                android:layout_marginLeft="225dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView25"
+                android:id="@+id/pCard10"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="240dp" />
+                android:layout_marginLeft="240dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView26"
+                android:id="@+id/pCard11"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="255dp" />
+                android:layout_marginLeft="255dp"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
-                android:id="@+id/imageView27"
+                android:id="@+id/pCard12"
                 android:src="@mipmap/qh"
-                android:layout_marginLeft="270dp" />
+                android:layout_marginLeft="270dp"
+                android:visibility="invisible" />
         </FrameLayout>
 
         <LinearLayout
@@ -260,14 +288,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/playerCards"
-            android:layout_centerHorizontal="true" >
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:id="@+id/playerText">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Player Value: "
-                android:id="@+id/textView2"
+                android:id="@+id/pValue"
                 android:textColor="#FFFFFF"
                 android:shadowColor="#6E2626"
                 android:shadowDx="1"
@@ -282,7 +312,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="0"
-                android:id="@+id/textView3"
+                android:id="@+id/pNum"
                 android:textColor="#FFFFFF"
                 android:shadowColor="#6E2626"
                 android:shadowDx="1"

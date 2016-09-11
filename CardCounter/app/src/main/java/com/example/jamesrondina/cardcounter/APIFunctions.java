@@ -126,6 +126,8 @@ public class APIFunctions {
                         .load(card[0].getImage())
                         .into(imageView);
 
+                //gets the number that's currently in the textView, and then modifies it based on the card drawn
+
                 int currentCount = Integer.parseInt(textView.getText().toString());
 
                 textView.setText(String.valueOf(currentCount + cardValue(card[0].getValue())));
