@@ -20,12 +20,19 @@
             android:layout_marginLeft="10dp">
 
 
-                <ImageView
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/facedown"
+                android:src="@mipmap/cback"
+                android:visibility="invisible"
+                android:layout_gravity="left|center_vertical" />
+
+            <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard0"
-                    android:src="@mipmap/back"
-                    android:visibility="invisible" />
+                android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"

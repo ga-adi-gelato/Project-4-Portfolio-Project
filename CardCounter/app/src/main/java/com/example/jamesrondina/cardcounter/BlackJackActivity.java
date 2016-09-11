@@ -3,20 +3,28 @@ package com.example.jamesrondina.cardcounter;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jamesrondina.cardcounter.models.Card;
+
+import java.util.List;
+
 import retrofit2.Retrofit;
 
 public class BlackJackActivity extends AppCompatActivity {
 
-    private ImageView dCard0, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, dCard8, dCard9, dCard10, dCard11, dCard12,
+    public static final String TAG = "BlackJackActivity";
+    private ImageView fDown, dCard0, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, dCard8, dCard9, dCard10, dCard11, dCard12,
     pCard0, pCard1, pCard2, pCard3, pCard4, pCard5, pCard6, pCard7, pCard8, pCard9, pCard10, pCard11, pCard12;
     private Button hitButton, standButton, dealButton;
     private TextView dValue, pValue;
+    private List<Card> pCards, dCards;
+    private int pSum, dSum;
 
     Context context = BlackJackActivity.this;
 
@@ -48,6 +56,7 @@ public class BlackJackActivity extends AppCompatActivity {
                         toggleButton(dealButton);
                         toggleButton(hitButton);
                         toggleButton(standButton);
+
                         break;
 
                 }
@@ -62,6 +71,7 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void setObjects(){
+        fDown = (ImageView) findViewById(R.id.facedown);
         dCard0 = (ImageView) findViewById(R.id.dCard0);
         dCard1 = (ImageView) findViewById(R.id.dCard1);
         dCard2 = (ImageView) findViewById(R.id.dCard2);
@@ -110,5 +120,30 @@ public class BlackJackActivity extends AppCompatActivity {
             button.setEnabled(false);
             button.setAlpha(0.5f);
         }
+    }
+
+    private void faceDown(Card card) {
+        fDown.setVisibility(View.VISIBLE);
+    }
+    
+    private void playerHit(Card card) {
+        
+    }
+
+    private void winConditions(){
+
+        if(pSum>21){
+            Log.i(TAG, "winConditions: Player is Bust! ");
+            //bust
+        }
+        if (dSum>21){
+            Log.i(TAG, "winConditions: Dealer is Bust!");
+            //bust
+        }
+        if (pSum == dSum){
+            Log.i(TAG, "winConditions: Push");
+            //Push
+        }
+
     }
 }
