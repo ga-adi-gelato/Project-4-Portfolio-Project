@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Card {
 
+    private int resId;
+    private int bjackVal;
+
     @SerializedName("image")
     @Expose
     private String image;
@@ -112,4 +115,19 @@ public class Card {
         this.images = images;
     }
 
+    public int getResId() {
+        return resId;
+    }
+
+    public void setResId(int resId) {
+        this.resId = resId;
+    }
+
+    public int getBjackVal() {
+        return bjackVal;
+    }
+
+    public void setBjackVal(int bjackVal) {
+        this.bjackVal = bjackVal;
+    }
 }

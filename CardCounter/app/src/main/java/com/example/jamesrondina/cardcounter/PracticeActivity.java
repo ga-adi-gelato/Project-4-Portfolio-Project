@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import retrofit2.Retrofit;
@@ -18,9 +20,12 @@ public class PracticeActivity extends AppCompatActivity {
     private ImageView mCard;
     private TextView mYourNum, mRealNum;
     private View mRealCount;
+    private Switch mSpeed;
 
+    private static final int SLOW = 3000;
+    private static final int FAST = 1500;
     private int userCount = 0;
-    private int timeDelay = 1000;
+    private int timeDelay = SLOW;
 
     private Context context = PracticeActivity.this;
     private Retrofit retrofit;
@@ -41,6 +46,19 @@ public class PracticeActivity extends AppCompatActivity {
         mRealCount = findViewById(R.id.realLayout);
         mCard = (ImageView) findViewById(R.id.card);
         mRealNum = (TextView) findViewById(R.id.realNum);
+        mSpeed = (Switch) findViewById(R.id.speedSwitch);
+
+        mSpeed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean fast) {
+                if(fast){
+                    timeDelay = FAST;
+                }
+                else {
+                    timeDelay = SLOW;
+                }
+            }
+        });
 
         APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
         APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card

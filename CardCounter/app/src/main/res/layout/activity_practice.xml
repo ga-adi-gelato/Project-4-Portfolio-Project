@@ -168,5 +168,19 @@
 
 </LinearLayout>
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SLOW/FAST"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#6E2626"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:id="@+id/speedSwitch"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/linearLayout" />
+
 
 </RelativeLayout>
