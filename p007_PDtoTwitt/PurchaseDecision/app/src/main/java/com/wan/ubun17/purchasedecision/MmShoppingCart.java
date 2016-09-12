@@ -40,10 +40,11 @@ public class MmShoppingCart extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 AdapterFireBase data = dataSnapshot.getValue(AdapterFireBase.class);
-
+                data.setmFireReference(String.valueOf(dataSnapshot.getRef()));
                 fireBaseArray.add(data);
                // dataSnapshot.getRef();
                 Log.d("from Fire", data.getItemName()+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                Log.d("from Fire", String.valueOf(dataSnapshot.getRef()));
                 Log.d("from Fire", String.valueOf(dataSnapshot.getRef()));
                 adapRecyCart.notifyDataSetChanged();
             }

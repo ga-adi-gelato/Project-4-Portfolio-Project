@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class ViewHolderCart extends RecyclerView.ViewHolder {
     public TextView tvName, tvPrice;
     public ImageView ivThum;
-    Button ivItemDelete;
+    Button buItemDelete;
 
     public ViewHolderCart(View itemView) {
         super(itemView);
@@ -20,6 +20,6 @@ public class ViewHolderCart extends RecyclerView.ViewHolder {
         tvName = (TextView) itemView.findViewById(R.id.cartName);
         tvPrice = (TextView) itemView.findViewById(R.id.cartPrice);
         ivThum = (ImageView) itemView.findViewById(R.id.cartImage);
-        ivItemDelete = (Button) itemView.findViewById(R.id.buDelItemCart);
+        buItemDelete = (Button) itemView.findViewById(R.id.buDelItemCart);
     }
 }

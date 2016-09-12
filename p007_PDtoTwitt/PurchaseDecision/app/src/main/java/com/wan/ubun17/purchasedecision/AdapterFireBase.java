@@ -4,7 +4,7 @@ package com.wan.ubun17.purchasedecision;
  * Created by ubun17 on 9/10/16.
  */
 public class AdapterFireBase {
-    private String mName, mPrice, mImageUrl ;
+    private String mName, mPrice, mImageUrl, mFireReference ;
 
     AdapterFireBase() {}
 
@@ -12,6 +12,7 @@ public class AdapterFireBase {
         mName = str;
         mPrice = price;
         mImageUrl = url;
+        mFireReference = "???";
     }
 
     public String getItemName() {
@@ -26,15 +27,11 @@ public class AdapterFireBase {
         return mImageUrl;
     }
 
-    public void setItemName(String testOne) {
-        this.mName = testOne;
+    public String getmFireReference() {return mFireReference;}
+
+    public void setmFireReference(String str) {
+        mFireReference = str;
     }
 
-    public void setmPrice(String str) {
-        this.mPrice = str;
-    }
 
-    public void setmImageUrl(String str) {
-        this.mImageUrl = str;
-    }
 }
