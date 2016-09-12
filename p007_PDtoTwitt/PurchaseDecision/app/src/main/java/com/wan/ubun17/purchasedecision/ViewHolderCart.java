@@ -2,6 +2,7 @@ package com.wan.ubun17.purchasedecision;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,10 +12,14 @@ import android.widget.TextView;
 public class ViewHolderCart extends RecyclerView.ViewHolder {
     public TextView tvName, tvPrice;
     public ImageView ivThum;
+    Button ivItemDelete;
 
     public ViewHolderCart(View itemView) {
         super(itemView);
+
         tvName = (TextView) itemView.findViewById(R.id.cartName);
         tvPrice = (TextView) itemView.findViewById(R.id.cartPrice);
+        ivThum = (ImageView) itemView.findViewById(R.id.cartImage);
+        ivItemDelete = (Button) itemView.findViewById(R.id.buDelItemCart);
     }
 }

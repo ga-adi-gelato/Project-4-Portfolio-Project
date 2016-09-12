@@ -151,6 +151,8 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
 
                 AdapterFireBase data = new AdapterFireBase(itemName, itemPrice, itemURL);
                 mFirebaseRootRef = FirebaseDatabase.getInstance().getReference();
+
+                Log.d("reference", String.valueOf(mFirebaseRootRef));
                 final DatabaseReference firebaseMessageRef = mFirebaseRootRef.child("WalMartSCart");
                 firebaseMessageRef.push().setValue(data);
                 Toast.makeText(mContext, itemName+" To Cart",Toast.LENGTH_SHORT).show();

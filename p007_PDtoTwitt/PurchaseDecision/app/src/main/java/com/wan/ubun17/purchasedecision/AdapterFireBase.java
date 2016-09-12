@@ -4,7 +4,7 @@ package com.wan.ubun17.purchasedecision;
  * Created by ubun17 on 9/10/16.
  */
 public class AdapterFireBase {
-    private String mName, mPrice, mImageUrl;
+    private String mName, mPrice, mImageUrl ;
 
     AdapterFireBase() {}
 
