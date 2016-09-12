@@ -99,6 +99,38 @@ public class APIFunctions {
         });
     }
 
+    public static Card dealCard(final Retrofit retrofit, final Context context) {
+
+        DeckService ds = retrofit.create(DeckService.class);
+
+        final Card[] card = {new Card()};
+
+        Call<Deck> call = ds.callDeck(baseUrl + savedDeckId(context) + "/draw/" );
+        call.enqueue(new Callback<Deck>() {
+            @Override
+            public void onResponse(Call<Deck> call, Response<Deck> response) {
+                if(response.body().getRemaining() < 1) {
+                    getDeck(retrofit, context);
+                }
+
+                card[0] = response.body().getCards().get(0);
+
+                Log.i(TAG, "onResponse: Card drawn: " + card[0].getCode());
+                Log.i(TAG, "onResponse: image: " + card[0].getImage());
+                Log.i(TAG, "onResponse: " + response.body().getRemaining());
+            }
+
+            @Override
+            public void onFailure(Call<Deck> call, Throwable t) {
+
+                t.printStackTrace();
+
+            }
+        });
+
+        return card[0];
+    }
+
     public static void drawCard(final Retrofit retrofit, final Context context, final ImageView imageView, final TextView textView) {
 
         Log.i(TAG, "drawCard: drawing card");
