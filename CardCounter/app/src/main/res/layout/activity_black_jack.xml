@@ -24,14 +24,14 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard0"
-                    android:src="@mipmap/back"
+                    android:src="@mipmap/ac"
                     android:visibility="invisible" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard1"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/kh"
                     android:layout_marginLeft="105dp"
                     android:visibility="invisible" />
 
@@ -39,7 +39,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard2"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/s2"
                     android:layout_marginLeft="120dp"
                     android:visibility="invisible" />
 
@@ -47,7 +47,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard3"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/d4"
                     android:layout_marginLeft="135dp"
                     android:visibility="invisible" />
 
@@ -55,7 +55,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard4"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/c8"
                     android:layout_marginLeft="150dp"
                     android:visibility="invisible" />
 
@@ -63,7 +63,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard5"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/h3"
                     android:layout_marginLeft="165dp"
                     android:visibility="invisible" />
 
@@ -71,7 +71,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard6"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/d2"
                     android:layout_marginLeft="180dp"
                     android:visibility="invisible" />
 
@@ -79,7 +79,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard7"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/kc"
                     android:layout_marginLeft="195dp"
                     android:visibility="invisible" />
 
@@ -87,7 +87,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard8"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/js"
                     android:layout_marginLeft="210dp"
                     android:visibility="invisible" />
 
@@ -95,7 +95,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard9"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/s6"
                     android:layout_marginLeft="225dp"
                     android:visibility="invisible" />
 
@@ -103,7 +103,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard10"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/s2"
                     android:layout_marginLeft="240dp"
                     android:visibility="invisible" />
 
@@ -111,7 +111,7 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard11"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/d9"
                     android:layout_marginLeft="255dp"
                     android:visibility="invisible" />
 
@@ -119,9 +119,17 @@
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:id="@+id/dCard12"
-                    android:src="@mipmap/qh"
+                    android:src="@mipmap/h3"
                     android:layout_marginLeft="270dp"
                     android:visibility="invisible" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/facedown"
+                android:src="@mipmap/back"
+                android:visibility="invisible"
+                android:layout_gravity="left|center_vertical" />
 
         </FrameLayout>
 
@@ -183,14 +191,14 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard0"
-                android:src="@mipmap/back"
+                android:src="@mipmap/s0"
                 android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard1"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/d8"
                 android:layout_marginLeft="105dp"
                 android:visibility="invisible" />
 
@@ -198,7 +206,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard2"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/h2"
                 android:layout_marginLeft="120dp"
                 android:visibility="invisible" />
 
@@ -206,7 +214,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard3"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/c5"
                 android:layout_marginLeft="135dp"
                 android:visibility="invisible" />
 
@@ -214,7 +222,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard4"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/c6"
                 android:layout_marginLeft="150dp"
                 android:visibility="invisible" />
 
@@ -222,7 +230,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard5"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/qs"
                 android:layout_marginLeft="165dp"
                 android:visibility="invisible" />
 
@@ -230,7 +238,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard6"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/d6"
                 android:layout_marginLeft="180dp"
                 android:visibility="invisible" />
 
@@ -238,7 +246,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard7"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/jc"
                 android:layout_marginLeft="195dp"
                 android:visibility="invisible" />
 
@@ -246,7 +254,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard8"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/ah"
                 android:layout_marginLeft="210dp"
                 android:visibility="invisible" />
 
@@ -262,7 +270,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard10"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/d0"
                 android:layout_marginLeft="240dp"
                 android:visibility="invisible" />
 
@@ -270,7 +278,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard11"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/s3"
                 android:layout_marginLeft="255dp"
                 android:visibility="invisible" />
 
@@ -278,9 +286,31 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/pCard12"
-                android:src="@mipmap/qh"
+                android:src="@mipmap/jd"
                 android:layout_marginLeft="270dp"
                 android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="(Press Deal to Continue)"
+                android:textSize="20dp"
+                android:id="@+id/continueText"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#6E2626"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="4"
+                android:typeface="normal"
+                android:elegantTextHeight="false"
+                android:layout_gravity="center_horizontal|bottom"
+                android:visibility="invisible"
+                android:elevation="8dp"
+                android:background="@color/colorBackground"
+                android:padding="10dp"
+                android:layout_margin="10dp" />
+
         </FrameLayout>
 
         <LinearLayout
@@ -320,9 +350,43 @@
                 android:shadowRadius="4"
                 android:typeface="normal"
                 android:elegantTextHeight="false"
-                android:layout_weight="1" />
+                android:layout_weight="1"/>
+
+
         </LinearLayout>
+        <FrameLayout
+            android:layout_below="@+id/playerText"
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp" >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Player Wins!"
+                android:textSize="50dp"
+                android:id="@+id/outcomeText"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#6E2626"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="4"
+                android:typeface="normal"
+                android:elegantTextHeight="false"
+                android:layout_gravity="center_horizontal|top"
+                android:visibility="invisible"
+                android:elevation="8dp"
+                android:background="@color/colorBackground"
+                android:layout_margin="10dp"
+                android:focusable="false" />
+        </FrameLayout>
     </RelativeLayout>
+
+
 
     <LinearLayout
         android:id="@+id/buttonLayout"
