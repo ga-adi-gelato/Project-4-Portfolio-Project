@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.jamesrondina.cardcounter.models.Card;
+import com.example.jamesrondina.cardcounter.models.LocalShoe;
+
 import retrofit2.Retrofit;
 
 public class PracticeActivity extends AppCompatActivity {
@@ -25,10 +28,14 @@ public class PracticeActivity extends AppCompatActivity {
     private static final int SLOW = 3000;
     private static final int FAST = 1200;
     private int userCount = 0;
+    private int realCount = 0;
     private int timeDelay = SLOW;
 
-    private Context context = PracticeActivity.this;
-    private Retrofit retrofit;
+    private LocalShoe shoe;
+    private Card newCard;
+
+    //private Context context = PracticeActivity.this;
+    //private Retrofit retrofit;
 
     private Handler handler;
 
@@ -39,7 +46,7 @@ public class PracticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
 
-        retrofit = APIFunctions.retrofitInit(context);
+        //retrofit = APIFunctions.retrofitInit(context);
 
         mUp = (Button) findViewById(R.id.increaseButton);
         mDown = (Button) findViewById(R.id.decreaseButton);
@@ -49,6 +56,8 @@ public class PracticeActivity extends AppCompatActivity {
         mCard = (ImageView) findViewById(R.id.card);
         mRealNum = (TextView) findViewById(R.id.realNum);
         mSpeed = (Switch) findViewById(R.id.speedSwitch);
+
+        shoe = new LocalShoe();
 
         mSpeed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -62,8 +71,11 @@ public class PracticeActivity extends AppCompatActivity {
             }
         });
 
-        APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
-        APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
+        shoe.loadShoe();
+        drawCard();
+
+        //APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
+        //APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
 
         handler = new Handler();
         //handler.postDelayed(cardCycle, timeDelay);
@@ -143,9 +155,34 @@ public class PracticeActivity extends AppCompatActivity {
     {
         public void run()
         {
-            APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
+
+            drawCard();
+
+            //APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
             handler.postDelayed(this, timeDelay);
         }
     };
+
+    private void drawCard() {
+        newCard = shoe.draw();
+        updateCard();
+        updateCount();
+    }
+
+    private void updateCard() {
+        mCard.setImageResource(newCard.getResId());
+    }
+
+    private void updateCount() {
+
+        realCount += newCard.countVal();
+        if(realCount > 0) {
+            mRealNum.setText("+" + String.valueOf(realCount));
+        }
+        else {
+            mRealNum.setText(String.valueOf(realCount));
+        }
+
+    }
 
 }
