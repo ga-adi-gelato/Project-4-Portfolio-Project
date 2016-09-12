@@ -37,12 +37,14 @@ public class AdapRecyCart extends RecyclerView.Adapter<ViewHolderCart> {
     @Override
     public void onBindViewHolder(ViewHolderCart holder,final int position) {
 
-        String itemName, itemPrice, itemURL, itemRefer;
-        itemName = mFireBaseArray.get(position).getItemName();
+        String itemName, itemPrice, itemURL;
+        itemName = mFireBaseArray.get(position).getmName();
         itemPrice = mFireBaseArray.get(position).getmPrice();
         itemURL = mFireBaseArray.get(position).getmImageUrl();
 
         holder.tvName.setText(itemName);
+        Log.d("itemName in Recy","^^^^^^^^^^^"+ itemName);
+        Log.d("itemPrice in Recy","^^^^^^^^^^^"+ itemPrice);
         holder.tvPrice.setText(itemPrice);
         Picasso.with(holder.ivThum.getContext()).load(itemURL)
                 .resize(100, 100).into(holder.ivThum);
@@ -58,7 +60,8 @@ public class AdapRecyCart extends RecyclerView.Adapter<ViewHolderCart> {
               mFirebaseRootRef.child(mRefer)
                       .removeValue();
 
-              mFireBaseArray.notify();
+              mFireBaseArray.remove(position);
+              notifyItemRemoved(position);
 
               Log.d("AdapCart", "Delete clicked");
 

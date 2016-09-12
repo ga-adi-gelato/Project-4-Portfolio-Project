@@ -15,13 +15,18 @@ public class AdapterFireBase {
         mFireReference = "???";
     }
 
-    public String getItemName() {
+//    public String getItemName() {
+//        return mName;
+//    }
+
+    public String getmName() {
         return mName;
     }
 
     public String  getmPrice(){
         return mPrice;
     }
+
 
     public String getmImageUrl() {
         return mImageUrl;

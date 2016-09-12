@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     ebayCall.EbayCall();
 
                     try {
-                        Thread.sleep(255);
+                        Thread.sleep(155);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -172,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<Item> items) {
             SingleWarSearch singleWarSearch = getInstance();
             String strWal = singleWarSearch.getQuery();
+
+            //singleWarSearch.getItemList().get(0).getUpc();
 
             final ArrayList<Item> dataItem = singleWarSearch.getItemList();
             final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();

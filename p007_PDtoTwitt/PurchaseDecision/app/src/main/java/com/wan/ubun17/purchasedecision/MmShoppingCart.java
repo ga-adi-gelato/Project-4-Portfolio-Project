@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -15,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class MmShoppingCart extends AppCompatActivity {
+    Button buDelAll;
     DatabaseReference mFirebaseRootRef;
     ArrayList<AdapterFireBase> fireBaseArray = new ArrayList<>();
 
@@ -43,8 +46,8 @@ public class MmShoppingCart extends AppCompatActivity {
                 data.setmFireReference(String.valueOf(dataSnapshot.getRef()));
                 fireBaseArray.add(data);
                // dataSnapshot.getRef();
-                Log.d("from Fire", data.getItemName()+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                Log.d("from Fire", String.valueOf(dataSnapshot.getRef()));
+                Log.d("from Fire", data.getmName()+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                Log.d("from Fire", data.getmPrice()+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 Log.d("from Fire", String.valueOf(dataSnapshot.getRef()));
                 adapRecyCart.notifyDataSetChanged();
             }
@@ -61,7 +64,7 @@ public class MmShoppingCart extends AppCompatActivity {
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                adapRecyCart.notifyDataSetChanged();
             }
 
             @Override
@@ -69,6 +72,21 @@ public class MmShoppingCart extends AppCompatActivity {
 
             }
         });//End of fireBase
+    }//End of onCreate
 
-    }
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        buDelAll = (Button) findViewById(R.id.buDelAll);
+
+        buDelAll.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                mFirebaseRootRef.child("WalMartSCart").removeValue();
+                fireBaseArray.clear();
+                adapRecyCart.notifyDataSetChanged();
+            }
+        });
+    }//End of onStart
 }
