@@ -35,6 +35,10 @@ public class BlackJackActivity extends AppCompatActivity {
 
     private boolean stand = false;
 
+    //TODO: put things in the appropriate places in the lifecycle
+    //TODO: show values for user (and for dealer at the end)
+    //TODO: Lock to portrait
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +51,11 @@ public class BlackJackActivity extends AppCompatActivity {
         pHand = new Hand();
         dHand = new Hand();
 
-        //debug stuff
-        //pHand.getCards().add(draw());
-        //dHand.getCards().add(draw());
-        //Log.d(TAG, "onCreate: value " + pHand.getCards().get(0).getBjackVal() + " " + dHand.getCards().get(0).getBjackVal());
-        //dCard0.setImageResource(dHand.getCards().get(0).getResId());
-        //dCard0.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -82,7 +84,6 @@ public class BlackJackActivity extends AppCompatActivity {
         hitButton.setOnClickListener(listener);
         standButton.setOnClickListener(listener);
         dealButton.setOnClickListener(listener);
-
     }
 
     private void setObjects(){
@@ -113,7 +114,7 @@ public class BlackJackActivity extends AppCompatActivity {
         pCard10 = (ImageView) findViewById(R.id.pCard10);
         pCard11 = (ImageView) findViewById(R.id.pCard11);
         pCard12 = (ImageView) findViewById(R.id.pCard12);
-        
+
         playerViews = new ArrayList<>();
         dealerViews = new ArrayList<>();
 
@@ -130,7 +131,7 @@ public class BlackJackActivity extends AppCompatActivity {
         dealerViews.add(dCard10);
         dealerViews.add(dCard11);
         dealerViews.add(dCard12);
-        
+
         playerViews.add(pCard0);
         playerViews.add(pCard1);
         playerViews.add(pCard2);
@@ -163,7 +164,7 @@ public class BlackJackActivity extends AppCompatActivity {
     private void draw(Hand hand, List<ImageView> views) {
 
         Card newCard = shoe.draw();
-        
+
         //add card to hand and display in appropriate places
         hand.add(newCard);
 
@@ -197,7 +198,7 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void dealerMove() {
-        //TODO: dealer decides to hit or stand
+        //dealer decides to hit or stand
         if (dHand.value() < 17) {
             flipUp();
             draw(dHand, dealerViews);
@@ -267,6 +268,7 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void push() {
+        flipUp();
         Log.i(TAG, "push: " + pHand.value());
         showWinner("Push");
         reset();

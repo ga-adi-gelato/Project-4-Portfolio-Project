@@ -32,6 +32,9 @@ public class PracticeActivity extends AppCompatActivity {
 
     private Handler handler;
 
+    //TODO: Lock to portrait
+    //TODO: Handle no network
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
