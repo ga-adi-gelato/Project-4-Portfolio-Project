@@ -23,7 +23,7 @@ public class PracticeActivity extends AppCompatActivity {
     private Switch mSpeed;
 
     private static final int SLOW = 3000;
-    private static final int FAST = 1500;
+    private static final int FAST = 1200;
     private int userCount = 0;
     private int timeDelay = SLOW;
 
@@ -32,7 +32,6 @@ public class PracticeActivity extends AppCompatActivity {
 
     private Handler handler;
 
-    //TODO: Lock to portrait
     //TODO: Handle no network
 
     @Override

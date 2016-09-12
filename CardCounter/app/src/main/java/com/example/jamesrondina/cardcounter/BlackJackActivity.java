@@ -35,9 +35,7 @@ public class BlackJackActivity extends AppCompatActivity {
 
     private boolean stand = false;
 
-    //TODO: put things in the appropriate places in the lifecycle
     //TODO: show values for user (and for dealer at the end)
-    //TODO: Lock to portrait
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,7 +222,6 @@ public class BlackJackActivity extends AppCompatActivity {
         }
 
         if ((pHand.isBlackJack() && !dHand.isBlackJack())|| dHand.isBust()) {
-            flipUp();
             playerWin();
         }
 
@@ -236,7 +233,6 @@ public class BlackJackActivity extends AppCompatActivity {
                 push();
             }
             else {
-                flipUp();
                 dealerWin();
             }
         }
@@ -256,12 +252,14 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void playerWin(){
+        flipUp();
         Log.i(TAG, "playerWin: " + pHand.value() + " vs " + dHand.value());
         showWinner("Player Wins!");
         reset();
     }
 
     private void dealerWin(){
+        flipUp();
         Log.i(TAG, "dealerWin: " + dHand.value() + " vs " + pHand.value());
         showWinner("Dealer Wins!");
         reset();
