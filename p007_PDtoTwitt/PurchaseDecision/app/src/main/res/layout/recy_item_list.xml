@@ -128,4 +128,24 @@
         android:layout_toRightOf="@+id/buTwitterRecycle"
         android:layout_toEndOf="@+id/buTwitterRecycle"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="BestBuy Price $ "
+        android:id="@+id/textView4"
+        android:layout_above="@+id/buTwitterRecycle"
+        android:layout_toRightOf="@+id/imaThumb"
+        android:layout_toEndOf="@+id/imaThumb" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Best Buy Price"
+        android:id="@+id/tvBestBuyPrice"
+        android:layout_below="@+id/ebayMaxText"
+        android:layout_alignLeft="@+id/WalPrice"
+        android:layout_alignStart="@+id/WalPrice" />
+
 </RelativeLayout>

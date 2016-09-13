@@ -30,7 +30,7 @@ import java.util.Collections;
 public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Item> mItems;
     ArrayList<Example> mEbayExample;
-    String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice;
+    String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice, stBestBuyPrice;
     Context mContext;
 
     DatabaseReference mFirebaseRootRef;
@@ -95,12 +95,21 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         Log.d("UPC", stUPC+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         stWalPrice = mItems.get(position).getSalePrice().toString();
 
+        if (warSearch.getBestBuyArr().size() - 1 < position) {
+            stBestBuyPrice = "Best Buy comming";
+        } else {
+            stBestBuyPrice = warSearch.getBestBuyArr().get(position);
+        }
+
+
+
         holder.tvItemName.setText(stItemName);
         holder.tvWalPrice.setText(stWalPrice);
 
         holder.ebayAverPrice.setText(stEbayAev);
         holder.ebayMinPrice.setText(stEbayMin);
         holder.ebayMaxPrice.setText(stEbayMax);
+        holder.bestBuyPrice.setText(stBestBuyPrice);
 
         Picasso.with(holder.imageThumb.getContext()).load(thumbURL).resize(100, 100)
                 .into(holder.imageThumb);

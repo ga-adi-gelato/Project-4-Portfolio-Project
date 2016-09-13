@@ -214,7 +214,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
+        //adapter.notifyDataSetChanged();
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(List<String> list) {
+        adapter.notifyDataSetChanged();
     }
 }
 //////////////////////////////////////////////////////////

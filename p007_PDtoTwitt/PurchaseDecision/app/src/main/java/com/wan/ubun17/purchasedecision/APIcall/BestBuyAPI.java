@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wan.ubun17.purchasedecision.ResponseObject.BestBuyObject.BestBuyObject;
+import com.wan.ubun17.purchasedecision.ResponseObject.WalMartObject.SingleWarSearch;
 
 import java.io.IOException;
 
@@ -38,20 +39,17 @@ public class BestBuyAPI {
 
             String stResponseBody = response.body().string();
             Gson gson = new Gson();
-            String bePrice;
-
             BestBuyObject bestBuyResult = gson.fromJson(stResponseBody, BestBuyObject.class);
+            SingleWarSearch warSearch = SingleWarSearch.getInstance();
             if (bestBuyResult.getProductses() != null & bestBuyResult.getProductses().size() !=0 ) {
 
-                String stBes = bestBuyResult.getProductses().get(0).getName();
-                Log.d("Best Object", stBes + "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                String stBestBuyPrice = bestBuyResult.getProductses().get(0).getSalePrice();
+                warSearch.addBestBuyPrice(stBestBuyPrice);
+                Log.d("Best Object", stBestBuyPrice + "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            } else {
+                warSearch.addBestBuyPrice("NA");
             }
 
-//sam
-
-
-            //Log.d("bestBuy Price", bePrice+"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            //Log.d("bestBuy Price", stResponseBody);
 
         } catch (IOException e) {
             e.printStackTrace();
