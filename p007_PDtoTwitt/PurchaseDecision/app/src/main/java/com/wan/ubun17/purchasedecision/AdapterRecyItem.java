@@ -90,9 +90,10 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         thumbURLtwo = "https://i5.walmartimages.com/asr/8e0c3fb1-673b-4b29-9b8a-46cae3e0d917_1.c5d745d0e28796c3f8b53893ea6e064c.jpeg?odnHeight=100&odnWidth=100&odnBg=FFFFFF";
 
         stItemName = mItems.get(position).getName();
-        stWalPrice = mItems.get(position).getSalePrice().toString();
+        String stUPC = mItems.get(position).getUpc();
         /////////////////////////////////////////////////////
-
+        Log.d("UPC", stUPC+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        stWalPrice = mItems.get(position).getSalePrice().toString();
 
         holder.tvItemName.setText(stItemName);
         holder.tvWalPrice.setText(stWalPrice);
@@ -152,7 +153,6 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
                 AdapterFireBase data = new AdapterFireBase(itemName, itemPrice, itemURL);
                 mFirebaseRootRef = FirebaseDatabase.getInstance().getReference();
 
-                Log.d("reference", String.valueOf(mFirebaseRootRef));
                 final DatabaseReference firebaseMessageRef = mFirebaseRootRef.child("WalMartSCart");
                 firebaseMessageRef.push().setValue(data);
                 Toast.makeText(mContext, itemName+" To Cart",Toast.LENGTH_SHORT).show();
@@ -185,7 +185,6 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
                 int num = returnedStat.size();
                 for (int i = 0; i < num; i++) {
                     String testST = returnedStat.get(i).getText();
-                    Log.d("twitt tt ", "tttttttttttttttt   " + testST);
                 }
             }
 

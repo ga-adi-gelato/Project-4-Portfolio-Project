@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.wan.ubun17.purchasedecision.APIcall.BestBuyAPI;
 import com.wan.ubun17.purchasedecision.APIcall.EbayAPI;
 import com.wan.ubun17.purchasedecision.APIcall.TwitterAPI;
 import com.wan.ubun17.purchasedecision.APIcall.WalMartAPI;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
                 EbayAsyncCalling ebayCalling = new EbayAsyncCalling();
                 ebayCalling.execute("calling");
+
+                BestBuyAsyncCalling bestBuyCalling = new BestBuyAsyncCalling();
+                bestBuyCalling.execute("asdfasdf");
             }
         });//End of button
 
@@ -121,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Item> items) {
             SingleWarSearch singleWarSearch = getInstance();
-            String strWal = singleWarSearch.getQuery();
+            //String strWal = singleWarSearch.getQuery();
 
             final ArrayList<Item> dataItem = singleWarSearch.getItemList();
             final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();
@@ -171,15 +175,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Item> items) {
             SingleWarSearch singleWarSearch = getInstance();
-            String strWal = singleWarSearch.getQuery();
-
             //singleWarSearch.getItemList().get(0).getUpc();
 
             final ArrayList<Item> dataItem = singleWarSearch.getItemList();
             final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();
 
-//            mItems.clear();
-//            mItems.addAll(dataItem);
             if (dataEbay == null) {
                 Log.d("dataEbay", "nulnulnulnulnulnul-------------------------------");
             } else {
@@ -190,6 +190,34 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }// End of EbayAsyncCalling
+//////////////////////////////////////////////////////////
+    class BestBuyAsyncCalling extends AsyncTask<String, Double, List<String>> {
+
+    @Override
+    protected List<String> doInBackground(String... strings) {
+        SingleWarSearch singleWarSearch = getInstance();
+        ArrayList<Item> walItems = singleWarSearch.getItemList();
+
+        if (walItems == null) {
+            Log.d("BestBuy", "nulNulNUl---------------------------------------");
+        } else {
+            for (int i = 0; i < walItems.size(); i ++) {
+                String upcTerm = walItems.get(i).getUpc();
+                Log.d("upc", upcTerm+"   UUUUUUUUUUUUUUUUUUUUUU");
+                BestBuyAPI bestBuyCall = new BestBuyAPI(upcTerm, i);
+                bestBuyCall.bestBuyCall();
+
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+}
+//////////////////////////////////////////////////////////
 
     class TwitterAsyncCalling extends AsyncTask<String, Void, ArrayList<Statuses>> {
 
