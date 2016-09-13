@@ -93,7 +93,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         stItemName = mItems.get(position).getName();
         String stUPC = mItems.get(position).getUpc();
         /////////////////////////////////////////////////////
-        Log.d("UPC", stUPC+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        Log.d("UPC in RecyAdapter", stUPC+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         if (mItems.get(position).getSalePrice()==null ) {
             stWalPrice = "data coming";
         } else {
