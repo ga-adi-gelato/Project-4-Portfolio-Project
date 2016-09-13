@@ -30,7 +30,8 @@ import java.util.Collections;
 public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Item> mItems;
     ArrayList<Example> mEbayExample;
-    String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice, stBestBuyPrice;
+    String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice
+            , stBestBuyPrice, stTwitNum;
     Context mContext;
     //private ProgressBar progressBar;
     DatabaseReference mFirebaseRootRef;
@@ -93,7 +94,11 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         String stUPC = mItems.get(position).getUpc();
         /////////////////////////////////////////////////////
         Log.d("UPC", stUPC+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        stWalPrice = mItems.get(position).getSalePrice().toString();
+        if (mItems.get(position).getSalePrice()==null ) {
+            stWalPrice = "data coming";
+        } else {
+            stWalPrice = mItems.get(position).getSalePrice().toString();
+        }
 
         if (warSearch.getBestBuyArr().size() - 1 < position) {
             stBestBuyPrice = "Best Buy comming";
@@ -114,8 +119,12 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
         Picasso.with(holder.imageThumb.getContext()).load(thumbURL).resize(100, 100)
                 .into(holder.imageThumb);
 
-        TwitterAsyncCalling twittCalling = new TwitterAsyncCalling(holder);
-        twittCalling.execute(stItemName);
+        //if (stTwitNum == null) {
+            //stTwitNum = "Data coming";
+            TwitterAsyncCalling twittCalling = new TwitterAsyncCalling(holder);
+            twittCalling.execute(stItemName);
+        //}
+
 
         View.OnClickListener buTwitter = new View.OnClickListener(){
             @Override
@@ -202,7 +211,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
 
         @Override
         protected void onPostExecute(ArrayList<Statuses> statuses) {
-            String stTwitNum = String.valueOf(statuses.size());
+            stTwitNum = String.valueOf(statuses.size());
             holder.buTwitter.setText("Twitt # :" + stTwitNum);
             holder.twittList = statuses;
         }

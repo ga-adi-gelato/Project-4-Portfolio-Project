@@ -45,7 +45,7 @@ public class TwitterAPI {
             TweetsSearch tSearch = gson.fromJson(responseBody,TweetsSearch.class);
             comingStatuses =  tSearch.getStatuses();
 
-            Log.d("in twittter api", "---------------------------  API working");
+            Log.d("in TwitterAPI", "---------------------------  API is calling");
         } catch (IOException e) {
             e.printStackTrace();
         }
