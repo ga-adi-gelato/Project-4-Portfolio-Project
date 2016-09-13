@@ -1,4 +1,4 @@
-package com.example.jamesrondina.cardcounter.models;
+package com.jrondina.jamesrondina.cardcounter.models;
 
 import java.util.ArrayList;
 import java.util.List;

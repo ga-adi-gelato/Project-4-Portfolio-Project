@@ -1,4 +1,4 @@
-package com.example.jamesrondina.cardcounter;
+package com.jrondina.jamesrondina.cardcounter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,10 +9,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.jamesrondina.cardcounter.fragments.Page1;
-import com.example.jamesrondina.cardcounter.fragments.Page2;
-import com.example.jamesrondina.cardcounter.fragments.Page3;
-import com.example.jamesrondina.cardcounter.fragments.Page4;
+import com.jrondina.jamesrondina.cardcounter.fragments.Page1;
+import com.jrondina.jamesrondina.cardcounter.fragments.Page2;
+import com.jrondina.jamesrondina.cardcounter.fragments.Page3;
+import com.jrondina.jamesrondina.cardcounter.fragments.Page4;
 
 public class TutorialActivity extends AppCompatActivity {
 

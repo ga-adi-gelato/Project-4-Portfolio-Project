@@ -1,4 +1,4 @@
-package com.example.jamesrondina.cardcounter;
+package com.jrondina.jamesrondina.cardcounter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
