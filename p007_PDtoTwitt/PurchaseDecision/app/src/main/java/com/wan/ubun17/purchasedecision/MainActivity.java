@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.wan.ubun17.purchasedecision.APIcall.BestBuyAPI;
 import com.wan.ubun17.purchasedecision.APIcall.EbayAPI;
@@ -36,12 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     EditText inputItem;
     Button buItem, buTwittSearch, buToCart;
-
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(10);
+        progressBar.setVisibility(View.GONE);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycleViewItemList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,
@@ -65,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inputItem = (EditText) findViewById(R.id.inputSearch);
+
+                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setProgress(10);
 
                 String stSearchItem = inputItem.getText().toString();
                 AsycAPIcalling asycAPIcalling = new AsycAPIcalling();
@@ -112,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
             if (walItems != null) {
                 for (int i = 0; i < walItems.size(); i ++) {
                     singleWarSearch.getEbayExampleList().add(null);
+                    publishProgress(Double.valueOf(i));
                 }
             }
             return null;
@@ -120,12 +129,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Double... values) {
             super.onProgressUpdate(values);
+
+            progressBar.setProgress(5);
         }
 
         @Override
         protected void onPostExecute(List<Item> items) {
+            //progressBar.setVisibility(View.GONE);
             SingleWarSearch singleWarSearch = getInstance();
-            //String strWal = singleWarSearch.getQuery();
 
             final ArrayList<Item> dataItem = singleWarSearch.getItemList();
             final ArrayList<Example> dataEbay = singleWarSearch.getEbayExampleList();
@@ -170,10 +181,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected  void onProgressUpdate(Double... values) {
             super.onProgressUpdate(values);
+            progressBar.setVisibility(View.VISIBLE);
+            progressBar.setProgress(7);
         }
 
         @Override
         protected void onPostExecute(List<Item> items) {
+            //progressBar.setVisibility(View.GONE);
             SingleWarSearch singleWarSearch = getInstance();
             //singleWarSearch.getItemList().get(0).getUpc();
 
@@ -187,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 mEbayExamples.addAll(dataEbay);
                 adapter.notifyDataSetChanged();
             }
-
+            //progressBar.setVisibility(View.GONE);
         }
     }// End of EbayAsyncCalling
 //////////////////////////////////////////////////////////
@@ -214,19 +228,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
-        //adapter.notifyDataSetChanged();
         return null;
     }
 
     @Override
+    protected  void onProgressUpdate(Double... values) {
+        super.onProgressUpdate(values);
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress(5);
+    }
+
+    @Override
     protected void onPostExecute(List<String> list) {
+        progressBar.setVisibility(View.GONE);
         adapter.notifyDataSetChanged();
+
     }
 }
 //////////////////////////////////////////////////////////
-
-    class TwitterAsyncCalling extends AsyncTask<String, Void, ArrayList<Statuses>> {
+    class TwitterAsyncCalling extends AsyncTask<String, String, ArrayList<Statuses>> {
 
         @Override
         protected ArrayList<Statuses> doInBackground(String... strings) {
@@ -244,9 +264,16 @@ public class MainActivity extends AppCompatActivity {
             }
             return returnedStat;
         }
+    @Override
+    protected void onProgressUpdate(String... st) {
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress(3);
 
-        @Override
+    }
+
+    @Override
         protected void onPostExecute(ArrayList<Statuses> statuses) {
+            //progressBar.setVisibility(View.GONE);
             ArrayList<String> twittArrForListView = new ArrayList<String>();
 
             //int twittSize = statuses.size();

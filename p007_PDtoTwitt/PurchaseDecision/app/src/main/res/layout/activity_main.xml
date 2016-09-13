@@ -61,5 +61,13 @@
         android:layout_toRightOf="@+id/buTwittSearch"
         android:layout_toEndOf="@+id/buTwittSearch"/>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:minHeight="20dip"
+        android:maxHeight="20dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
+
 
 </RelativeLayout>

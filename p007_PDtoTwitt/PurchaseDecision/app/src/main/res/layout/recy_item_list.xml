@@ -144,8 +144,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Best Buy Price"
         android:id="@+id/tvBestBuyPrice"
-        android:layout_below="@+id/ebayMaxText"
-        android:layout_alignLeft="@+id/WalPrice"
-        android:layout_alignStart="@+id/WalPrice" />
+        android:layout_above="@+id/buSaveInCart"
+        android:layout_toRightOf="@+id/ebayMinPrice"
+        android:layout_toEndOf="@+id/ebayMinPrice" />
 
 </RelativeLayout>

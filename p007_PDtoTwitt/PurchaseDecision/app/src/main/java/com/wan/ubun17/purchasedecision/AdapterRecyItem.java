@@ -32,7 +32,7 @@ public class AdapterRecyItem extends RecyclerView.Adapter<ViewHolderItemList> {
     ArrayList<Example> mEbayExample;
     String stEbayMin, stEbayMax, stEbayAev, stItemName, stWalPrice, stBestBuyPrice;
     Context mContext;
-
+    //private ProgressBar progressBar;
     DatabaseReference mFirebaseRootRef;
 
     public AdapterRecyItem(ArrayList<Item> args, ArrayList<Example> examArr, Context context) {
