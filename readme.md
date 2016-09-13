@@ -6,7 +6,7 @@
 
 **You get to call the shots and invent your own idea**, choosing frameworks & tools that are appropriate for what you want to build. Pull from everything you've learned so far, and **tackle something that'll push you a little outside of your comfort zone.**
 
-For this project, you'll be working on your own and using product development strategies learned in unit 3 to come up with a project proposal that will be reviewed with your instructional team; this proposal is done to make sure you are building **something that can be accomplish in the limited time we have** while making sure it's **something that will challenge you**.
+For this project, you'll be working on your own and using product development strategies learned in unit 3 to come up with a project proposal that will be reviewed with your instructional team; this proposal is doe to make sure you are building **something that can be accomplish in the limited time we have** while making sure it's **something that will challenge you**.
 
 ---
 
