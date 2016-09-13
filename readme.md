@@ -2,4 +2,4 @@
 
 ### Ink.folio
 
-** https://github.com/jord-goldberg/inked
+https://github.com/jord-goldberg/inked
