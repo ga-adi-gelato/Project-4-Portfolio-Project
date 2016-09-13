@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, TutorialActivity.class);
                         break;
                     case R.id.practiceButton:
-                        Log.i("Main Menu", "onClick: launching practice");
                         intent = new Intent(MainActivity.this, PracticeActivity.class);
                         break;
                     case R.id.playButton:

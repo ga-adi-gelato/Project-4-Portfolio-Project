@@ -140,7 +140,7 @@
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/facedown"
-                android:src="@mipmap/back"
+                android:src="@mipmap/cback"
                 android:visibility="invisible"
                 android:layout_gravity="left|center_vertical"
                 android:elevation="4dp" />

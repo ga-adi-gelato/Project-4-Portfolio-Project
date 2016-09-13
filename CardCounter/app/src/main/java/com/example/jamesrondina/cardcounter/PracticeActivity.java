@@ -25,15 +25,17 @@ public class PracticeActivity extends AppCompatActivity {
     private View mRealCount;
     private Switch mSpeed;
 
-    private static final int SLOW = 3000;
-    private static final int FAST = 1200;
+    private static final int SLOW = 2000;
+    private static final int FAST = 900;
     private int userCount = 0;
     private int realCount = 0;
     private int timeDelay = SLOW;
+    private int remaining = 312;
 
     private LocalShoe shoe;
     private Card newCard;
 
+    //uncomment to make app use API
     //private Context context = PracticeActivity.this;
     //private Retrofit retrofit;
 
@@ -46,6 +48,7 @@ public class PracticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
 
+        //uncomment to make app use API
         //retrofit = APIFunctions.retrofitInit(context);
 
         mUp = (Button) findViewById(R.id.increaseButton);
@@ -57,7 +60,7 @@ public class PracticeActivity extends AppCompatActivity {
         mRealNum = (TextView) findViewById(R.id.realNum);
         mSpeed = (Switch) findViewById(R.id.speedSwitch);
 
-        shoe = new LocalShoe();
+        shoe = new LocalShoe(); //comment this out if you will be using API instead of local objects
 
         mSpeed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -71,14 +74,15 @@ public class PracticeActivity extends AppCompatActivity {
             }
         });
 
-        shoe.loadShoe();
-        drawCard();
 
+        shoe.loadShoe(); //comment this out if you don't want to use the local objects
+        drawCard(); //comment this out if you don't want to use the local objects
+
+        //uncomment to make app use API
         //APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
         //APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
 
         handler = new Handler();
-        //handler.postDelayed(cardCycle, timeDelay);
 
         //button row functionality
 
@@ -156,8 +160,9 @@ public class PracticeActivity extends AppCompatActivity {
         public void run()
         {
 
-            drawCard();
+            drawCard(); //comment out if you don't want to use local objects
 
+            //uncomment to make app use API
             //APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
             handler.postDelayed(this, timeDelay);
         }

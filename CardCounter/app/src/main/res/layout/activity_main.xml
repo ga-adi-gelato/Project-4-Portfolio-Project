@@ -13,9 +13,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="89dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView"
-        android:src="@mipmap/headerpholder" />
+        android:src="@mipmap/sb" />
 
     <LinearLayout
         android:layout_width="match_parent"

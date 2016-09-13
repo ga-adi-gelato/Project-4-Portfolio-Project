@@ -26,7 +26,8 @@ public class BlackJackActivity extends AppCompatActivity {
     private ImageView faceDown, dCard0, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, dCard8, dCard9, dCard10, dCard11, dCard12,
     pCard0, pCard1, pCard2, pCard3, pCard4, pCard5, pCard6, pCard7, pCard8, pCard9, pCard10, pCard11, pCard12;
     private Button hitButton, standButton, dealButton;
-    private TextView winner, cont, dValue, pValue;
+    private TextView winner, cont, dNum, pNum;
+    private View dText, pText;
 
     private List<ImageView> playerViews, dealerViews;
 
@@ -144,6 +145,9 @@ public class BlackJackActivity extends AppCompatActivity {
         playerViews.add(pCard11);
         playerViews.add(pCard12);
 
+        dText = findViewById(R.id.dealerText);
+        pText = findViewById(R.id.playerText);
+
         hitButton = (Button) findViewById(R.id.hitButton);
         standButton = (Button) findViewById(R.id.standButton);
         dealButton = (Button) findViewById(R.id.dealButton);
@@ -154,8 +158,8 @@ public class BlackJackActivity extends AppCompatActivity {
         toggleButton(hitButton);
         toggleButton(standButton);
 
-        dValue = (TextView) findViewById(R.id.dNum);
-        pValue = (TextView) findViewById(R.id.pNum);
+        dNum = (TextView) findViewById(R.id.dNum);
+        pNum = (TextView) findViewById(R.id.pNum);
 
     }
 
@@ -169,6 +173,8 @@ public class BlackJackActivity extends AppCompatActivity {
         int currentView = hand.size() - 1;
         views.get(currentView).setImageResource(newCard.getResId());
         views.get(currentView).setVisibility(View.VISIBLE);
+        pNum.setText(String.valueOf(pHand.value()));
+
 
 
     }
@@ -287,6 +293,7 @@ public class BlackJackActivity extends AppCompatActivity {
     private void resetCardViews() {
 
         flipDown();
+        pText.setVisibility(View.VISIBLE);
 
         //reset card views after round is played
         for (ImageView view: dealerViews
@@ -315,6 +322,7 @@ public class BlackJackActivity extends AppCompatActivity {
 
         faceDown.setVisibility(View.VISIBLE);
         dCard0.setVisibility(View.INVISIBLE);
+        dText.setVisibility(View.INVISIBLE);
 
     }
 
@@ -322,6 +330,8 @@ public class BlackJackActivity extends AppCompatActivity {
 
         faceDown.setVisibility(View.INVISIBLE);
         dCard0.setVisibility(View.VISIBLE);
+        dText.setVisibility(View.VISIBLE);
+        dNum.setText(String.valueOf(dHand.value()));
 
     }
 
