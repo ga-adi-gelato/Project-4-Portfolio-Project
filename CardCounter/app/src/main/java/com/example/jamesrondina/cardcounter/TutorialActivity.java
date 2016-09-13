@@ -53,7 +53,7 @@ public class TutorialActivity extends AppCompatActivity {
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments [] = {"Main","BlackJack","Counting","Values"};
+        private String fragments [] = {"Intro","Hi-Lo","Counting","Tools"};
 
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
