@@ -1,23 +1,19 @@
-package com.example.jamesrondina.cardcounter;
+package com.jrondina.jamesrondina.cardcounter;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jamesrondina.cardcounter.models.Card;
-import com.example.jamesrondina.cardcounter.models.Hand;
-import com.example.jamesrondina.cardcounter.models.LocalShoe;
+import com.jrondina.jamesrondina.cardcounter.models.Card;
+import com.jrondina.jamesrondina.cardcounter.models.Hand;
+import com.jrondina.jamesrondina.cardcounter.models.LocalShoe;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Retrofit;
 
 public class BlackJackActivity extends AppCompatActivity {
 

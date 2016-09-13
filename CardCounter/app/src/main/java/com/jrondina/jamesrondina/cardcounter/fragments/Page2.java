@@ -1,4 +1,4 @@
-package com.example.jamesrondina.cardcounter.fragments;
+package com.jrondina.jamesrondina.cardcounter.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.jamesrondina.cardcounter.R;
+import com.jrondina.jamesrondina.cardcounter.R;
 
 /**
  * Created by jamesrondina on 9/12/16.

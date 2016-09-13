@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context="com.example.jamesrondina.cardcounter.MainActivity"
+    tools:context="com.jrondina.jamesrondina.cardcounter.MainActivity"
     android:orientation="vertical"
     android:paddingLeft="30dp"
     android:paddingRight="30dp">
@@ -89,6 +89,34 @@
             android:enabled="true"
             android:contextClickable="false" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Please observe all local laws/regulations. Gamble at your own risk and play responsibly."
+            android:id="@+id/disclaimer"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_gravity="bottom"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+
+
+
 
 
 </LinearLayout>

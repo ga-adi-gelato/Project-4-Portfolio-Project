@@ -1,6 +1,5 @@
-package com.example.jamesrondina.cardcounter;
+package com.jrondina.jamesrondina.cardcounter;
 
-import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,10 +11,8 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.jamesrondina.cardcounter.models.Card;
-import com.example.jamesrondina.cardcounter.models.LocalShoe;
-
-import retrofit2.Retrofit;
+import com.jrondina.jamesrondina.cardcounter.models.Card;
+import com.jrondina.jamesrondina.cardcounter.models.LocalShoe;
 
 public class PracticeActivity extends AppCompatActivity {
 

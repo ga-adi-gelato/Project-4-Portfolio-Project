@@ -1,6 +1,6 @@
-package com.example.jamesrondina.cardcounter.interfaces;
+package com.jrondina.jamesrondina.cardcounter.interfaces;
 
-import com.example.jamesrondina.cardcounter.models.Deck;
+import com.jrondina.jamesrondina.cardcounter.models.Deck;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -22,9 +22,8 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="  You can practice your technique using the tools in this app. Counting Practice lets you sharpen your card counting ability. You will be shown a card for a short period of time, and you must adjust the running count based on the card's value. If you need help, you can show the actual count to compare your count. You can toggle the speed between slow and fast depending on your skill level.
-    The app also includes a BlackJack game. Use this to practice your card counting skills against a simulated dealer.
-    Hopefully you find this app useful. Good luck and play responsibly!"
+        android:text="  You can practice your technique using the tools in this app. Counting Practice lets you sharpen your card counting ability. You will be shown a card for a short period of time, and you must adjust the running count based on the card's value. If you need help, you can show the actual count to compare your count. You can toggle the speed between slow and fast depending on your skill level. \n\tThe app also includes a BlackJack game. Use this to practice your card counting skills against a simulated dealer.
+ Hopefully you find this app useful. Good luck and play responsibly!"
         android:textSize="18dp"
         android:textColor="#FFFFFF"
         android:shadowColor="#6E2626"

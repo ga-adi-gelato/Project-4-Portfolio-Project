@@ -1,4 +1,4 @@
-package com.example.jamesrondina.cardcounter;
+package com.jrondina.jamesrondina.cardcounter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,9 +8,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jamesrondina.cardcounter.interfaces.DeckService;
-import com.example.jamesrondina.cardcounter.models.Card;
-import com.example.jamesrondina.cardcounter.models.Deck;
+import com.jrondina.jamesrondina.cardcounter.interfaces.DeckService;
+import com.jrondina.jamesrondina.cardcounter.models.Card;
+import com.jrondina.jamesrondina.cardcounter.models.Deck;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;

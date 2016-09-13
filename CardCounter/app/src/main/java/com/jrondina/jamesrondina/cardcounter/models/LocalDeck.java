@@ -1,6 +1,6 @@
-package com.example.jamesrondina.cardcounter.models;
+package com.jrondina.jamesrondina.cardcounter.models;
 
-import com.example.jamesrondina.cardcounter.R;
+import com.jrondina.jamesrondina.cardcounter.R;
 
 import java.util.ArrayList;
 import java.util.List;
