@@ -1,25 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    style="@style/Theme.AppCompat.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:background="@color/colorBackground"
+    tools:context="com.example.jamesrondina.cardcounter.MainActivity"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
 
-    <include
-        layout="@layout/app_bar_main"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="150dp"
+        android:id="@+id/imageView"
+        android:src="@mipmap/sb" />
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
 
-</android.support.v4.widget.DrawerLayout>
+        <Button
+            android:id="@+id/tutorialButton"
+            android:text="Tutorial"
+            android:textColor="#FFFFFF"
+            android:textSize="36dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:contextClickable="false" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <Button
+            android:id="@+id/practiceButton"
+            android:text="Counting Practice"
+            android:textColor="#FFFFFF"
+            android:textSize="36dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:contextClickable="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <Button
+            android:id="@+id/playButton"
+            android:text="Play Blackjack"
+            android:textColor="#FFFFFF"
+            android:textSize="36dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:contextClickable="false" />
+    </LinearLayout>
+
+
+</LinearLayout>

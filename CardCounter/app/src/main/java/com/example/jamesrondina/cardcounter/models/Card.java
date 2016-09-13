@@ -130,4 +130,14 @@ public class Card {
     public void setBjackVal(int bjackVal) {
         this.bjackVal = bjackVal;
     }
+
+    public int countVal(){
+        if (getBjackVal() < 7) {
+            return 1;
+        }
+        else if(getBjackVal() > 9) {
+            return -1;
+        }
+        else return 0;
+    }
 }

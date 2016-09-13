@@ -25,7 +25,8 @@
                     android:layout_height="140dp"
                     android:id="@+id/dCard0"
                     android:src="@mipmap/ac"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -33,7 +34,8 @@
                     android:id="@+id/dCard1"
                     android:src="@mipmap/kh"
                     android:layout_marginLeft="105dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -41,7 +43,8 @@
                     android:id="@+id/dCard2"
                     android:src="@mipmap/s2"
                     android:layout_marginLeft="120dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -49,7 +52,8 @@
                     android:id="@+id/dCard3"
                     android:src="@mipmap/d4"
                     android:layout_marginLeft="135dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -57,7 +61,8 @@
                     android:id="@+id/dCard4"
                     android:src="@mipmap/c8"
                     android:layout_marginLeft="150dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -65,7 +70,8 @@
                     android:id="@+id/dCard5"
                     android:src="@mipmap/h3"
                     android:layout_marginLeft="165dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -73,7 +79,8 @@
                     android:id="@+id/dCard6"
                     android:src="@mipmap/d2"
                     android:layout_marginLeft="180dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -81,7 +88,8 @@
                     android:id="@+id/dCard7"
                     android:src="@mipmap/kc"
                     android:layout_marginLeft="195dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -89,7 +97,8 @@
                     android:id="@+id/dCard8"
                     android:src="@mipmap/js"
                     android:layout_marginLeft="210dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -97,7 +106,8 @@
                     android:id="@+id/dCard9"
                     android:src="@mipmap/s6"
                     android:layout_marginLeft="225dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -105,7 +115,8 @@
                     android:id="@+id/dCard10"
                     android:src="@mipmap/s2"
                     android:layout_marginLeft="240dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -113,7 +124,8 @@
                     android:id="@+id/dCard11"
                     android:src="@mipmap/d9"
                     android:layout_marginLeft="255dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
                 <ImageView
                     android:layout_width="100dp"
@@ -121,15 +133,17 @@
                     android:id="@+id/dCard12"
                     android:src="@mipmap/h3"
                     android:layout_marginLeft="270dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="140dp"
                 android:id="@+id/facedown"
-                android:src="@mipmap/back"
+                android:src="@mipmap/cback"
                 android:visibility="invisible"
-                android:layout_gravity="left|center_vertical" />
+                android:layout_gravity="left|center_vertical"
+                android:elevation="4dp" />
 
         </FrameLayout>
 
@@ -192,7 +206,8 @@
                 android:layout_height="140dp"
                 android:id="@+id/pCard0"
                 android:src="@mipmap/s0"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -200,7 +215,8 @@
                 android:id="@+id/pCard1"
                 android:src="@mipmap/d8"
                 android:layout_marginLeft="105dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -208,7 +224,8 @@
                 android:id="@+id/pCard2"
                 android:src="@mipmap/h2"
                 android:layout_marginLeft="120dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -216,7 +233,8 @@
                 android:id="@+id/pCard3"
                 android:src="@mipmap/c5"
                 android:layout_marginLeft="135dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -224,7 +242,8 @@
                 android:id="@+id/pCard4"
                 android:src="@mipmap/c6"
                 android:layout_marginLeft="150dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -232,7 +251,8 @@
                 android:id="@+id/pCard5"
                 android:src="@mipmap/qs"
                 android:layout_marginLeft="165dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -240,7 +260,8 @@
                 android:id="@+id/pCard6"
                 android:src="@mipmap/d6"
                 android:layout_marginLeft="180dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -248,7 +269,8 @@
                 android:id="@+id/pCard7"
                 android:src="@mipmap/jc"
                 android:layout_marginLeft="195dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -256,7 +278,8 @@
                 android:id="@+id/pCard8"
                 android:src="@mipmap/ah"
                 android:layout_marginLeft="210dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -264,7 +287,8 @@
                 android:id="@+id/pCard9"
                 android:src="@mipmap/qh"
                 android:layout_marginLeft="225dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -272,7 +296,8 @@
                 android:id="@+id/pCard10"
                 android:src="@mipmap/d0"
                 android:layout_marginLeft="240dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -280,7 +305,8 @@
                 android:id="@+id/pCard11"
                 android:src="@mipmap/s3"
                 android:layout_marginLeft="255dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -288,7 +314,8 @@
                 android:id="@+id/pCard12"
                 android:src="@mipmap/jd"
                 android:layout_marginLeft="270dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:elevation="2dp" />
 
             <TextView
                 android:layout_width="wrap_content"

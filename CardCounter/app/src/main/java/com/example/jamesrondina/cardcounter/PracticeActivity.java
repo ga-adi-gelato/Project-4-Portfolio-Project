@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.jamesrondina.cardcounter.models.Card;
+import com.example.jamesrondina.cardcounter.models.LocalShoe;
+
 import retrofit2.Retrofit;
 
 public class PracticeActivity extends AppCompatActivity {
@@ -22,22 +25,31 @@ public class PracticeActivity extends AppCompatActivity {
     private View mRealCount;
     private Switch mSpeed;
 
-    private static final int SLOW = 3000;
-    private static final int FAST = 1500;
+    private static final int SLOW = 2000;
+    private static final int FAST = 900;
     private int userCount = 0;
+    private int realCount = 0;
     private int timeDelay = SLOW;
+    private int remaining = 312;
 
-    private Context context = PracticeActivity.this;
-    private Retrofit retrofit;
+    private LocalShoe shoe;
+    private Card newCard;
+
+    //uncomment to make app use API
+    //private Context context = PracticeActivity.this;
+    //private Retrofit retrofit;
 
     private Handler handler;
+
+    //TODO: Handle no network
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
 
-        retrofit = APIFunctions.retrofitInit(context);
+        //uncomment to make app use API
+        //retrofit = APIFunctions.retrofitInit(context);
 
         mUp = (Button) findViewById(R.id.increaseButton);
         mDown = (Button) findViewById(R.id.decreaseButton);
@@ -47,6 +59,8 @@ public class PracticeActivity extends AppCompatActivity {
         mCard = (ImageView) findViewById(R.id.card);
         mRealNum = (TextView) findViewById(R.id.realNum);
         mSpeed = (Switch) findViewById(R.id.speedSwitch);
+
+        shoe = new LocalShoe(); //comment this out if you will be using API instead of local objects
 
         mSpeed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -60,11 +74,15 @@ public class PracticeActivity extends AppCompatActivity {
             }
         });
 
-        APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
-        APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
+
+        shoe.loadShoe(); //comment this out if you don't want to use the local objects
+        drawCard(); //comment this out if you don't want to use the local objects
+
+        //uncomment to make app use API
+        //APIFunctions.getDeck(retrofit, context); //prepare deck at start of activity
+        //APIFunctions.drawCard(retrofit,context,mCard,mRealNum); //prepare initial card
 
         handler = new Handler();
-        //handler.postDelayed(cardCycle, timeDelay);
 
         //button row functionality
 
@@ -141,9 +159,35 @@ public class PracticeActivity extends AppCompatActivity {
     {
         public void run()
         {
-            APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
+
+            drawCard(); //comment out if you don't want to use local objects
+
+            //uncomment to make app use API
+            //APIFunctions.drawCard(retrofit,context,mCard,mRealNum);
             handler.postDelayed(this, timeDelay);
         }
     };
+
+    private void drawCard() {
+        newCard = shoe.draw();
+        updateCard();
+        updateCount();
+    }
+
+    private void updateCard() {
+        mCard.setImageResource(newCard.getResId());
+    }
+
+    private void updateCount() {
+
+        realCount += newCard.countVal();
+        if(realCount > 0) {
+            mRealNum.setText("+" + String.valueOf(realCount));
+        }
+        else {
+            mRealNum.setText(String.valueOf(realCount));
+        }
+
+    }
 
 }

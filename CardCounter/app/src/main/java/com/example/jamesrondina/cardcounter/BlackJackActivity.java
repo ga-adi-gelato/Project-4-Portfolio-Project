@@ -26,7 +26,8 @@ public class BlackJackActivity extends AppCompatActivity {
     private ImageView faceDown, dCard0, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, dCard8, dCard9, dCard10, dCard11, dCard12,
     pCard0, pCard1, pCard2, pCard3, pCard4, pCard5, pCard6, pCard7, pCard8, pCard9, pCard10, pCard11, pCard12;
     private Button hitButton, standButton, dealButton;
-    private TextView winner, cont, dValue, pValue;
+    private TextView winner, cont, dNum, pNum;
+    private View dText, pText;
 
     private List<ImageView> playerViews, dealerViews;
 
@@ -34,6 +35,8 @@ public class BlackJackActivity extends AppCompatActivity {
     private Hand pHand, dHand;
 
     private boolean stand = false;
+
+    //TODO: show values for user (and for dealer at the end)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +50,11 @@ public class BlackJackActivity extends AppCompatActivity {
         pHand = new Hand();
         dHand = new Hand();
 
-        //debug stuff
-        //pHand.getCards().add(draw());
-        //dHand.getCards().add(draw());
-        //Log.d(TAG, "onCreate: value " + pHand.getCards().get(0).getBjackVal() + " " + dHand.getCards().get(0).getBjackVal());
-        //dCard0.setImageResource(dHand.getCards().get(0).getResId());
-        //dCard0.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -82,7 +83,6 @@ public class BlackJackActivity extends AppCompatActivity {
         hitButton.setOnClickListener(listener);
         standButton.setOnClickListener(listener);
         dealButton.setOnClickListener(listener);
-
     }
 
     private void setObjects(){
@@ -113,7 +113,7 @@ public class BlackJackActivity extends AppCompatActivity {
         pCard10 = (ImageView) findViewById(R.id.pCard10);
         pCard11 = (ImageView) findViewById(R.id.pCard11);
         pCard12 = (ImageView) findViewById(R.id.pCard12);
-        
+
         playerViews = new ArrayList<>();
         dealerViews = new ArrayList<>();
 
@@ -130,7 +130,7 @@ public class BlackJackActivity extends AppCompatActivity {
         dealerViews.add(dCard10);
         dealerViews.add(dCard11);
         dealerViews.add(dCard12);
-        
+
         playerViews.add(pCard0);
         playerViews.add(pCard1);
         playerViews.add(pCard2);
@@ -145,6 +145,9 @@ public class BlackJackActivity extends AppCompatActivity {
         playerViews.add(pCard11);
         playerViews.add(pCard12);
 
+        dText = findViewById(R.id.dealerText);
+        pText = findViewById(R.id.playerText);
+
         hitButton = (Button) findViewById(R.id.hitButton);
         standButton = (Button) findViewById(R.id.standButton);
         dealButton = (Button) findViewById(R.id.dealButton);
@@ -155,21 +158,23 @@ public class BlackJackActivity extends AppCompatActivity {
         toggleButton(hitButton);
         toggleButton(standButton);
 
-        dValue = (TextView) findViewById(R.id.dNum);
-        pValue = (TextView) findViewById(R.id.pNum);
+        dNum = (TextView) findViewById(R.id.dNum);
+        pNum = (TextView) findViewById(R.id.pNum);
 
     }
 
     private void draw(Hand hand, List<ImageView> views) {
 
         Card newCard = shoe.draw();
-        
+
         //add card to hand and display in appropriate places
         hand.add(newCard);
 
         int currentView = hand.size() - 1;
         views.get(currentView).setImageResource(newCard.getResId());
         views.get(currentView).setVisibility(View.VISIBLE);
+        pNum.setText(String.valueOf(pHand.value()));
+
 
 
     }
@@ -197,7 +202,7 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void dealerMove() {
-        //TODO: dealer decides to hit or stand
+        //dealer decides to hit or stand
         if (dHand.value() < 17) {
             flipUp();
             draw(dHand, dealerViews);
@@ -223,7 +228,6 @@ public class BlackJackActivity extends AppCompatActivity {
         }
 
         if ((pHand.isBlackJack() && !dHand.isBlackJack())|| dHand.isBust()) {
-            flipUp();
             playerWin();
         }
 
@@ -235,7 +239,6 @@ public class BlackJackActivity extends AppCompatActivity {
                 push();
             }
             else {
-                flipUp();
                 dealerWin();
             }
         }
@@ -255,18 +258,21 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     private void playerWin(){
+        flipUp();
         Log.i(TAG, "playerWin: " + pHand.value() + " vs " + dHand.value());
         showWinner("Player Wins!");
         reset();
     }
 
     private void dealerWin(){
+        flipUp();
         Log.i(TAG, "dealerWin: " + dHand.value() + " vs " + pHand.value());
         showWinner("Dealer Wins!");
         reset();
     }
 
     private void push() {
+        flipUp();
         Log.i(TAG, "push: " + pHand.value());
         showWinner("Push");
         reset();
@@ -287,6 +293,7 @@ public class BlackJackActivity extends AppCompatActivity {
     private void resetCardViews() {
 
         flipDown();
+        pText.setVisibility(View.VISIBLE);
 
         //reset card views after round is played
         for (ImageView view: dealerViews
@@ -315,6 +322,7 @@ public class BlackJackActivity extends AppCompatActivity {
 
         faceDown.setVisibility(View.VISIBLE);
         dCard0.setVisibility(View.INVISIBLE);
+        dText.setVisibility(View.INVISIBLE);
 
     }
 
@@ -322,6 +330,8 @@ public class BlackJackActivity extends AppCompatActivity {
 
         faceDown.setVisibility(View.INVISIBLE);
         dCard0.setVisibility(View.VISIBLE);
+        dText.setVisibility(View.VISIBLE);
+        dNum.setText(String.valueOf(dHand.value()));
 
     }
 
