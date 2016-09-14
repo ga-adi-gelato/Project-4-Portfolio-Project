@@ -13,3 +13,7 @@ Prototype
 [Practice Activity](https://marvelapp.com/7gab786/screen/14894351)
 
 [BlackJack Activity](https://marvelapp.com/7gab786/screen/14894967)
+
+Trello
+======
+https://trello.com/b/v1BA7IXR/project-4-card-counting-trainer
