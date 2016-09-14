@@ -11,21 +11,21 @@ For this project, you'll be working on your own and using product development st
 ---
 
  
- ## Info for Game Stats for Dota 2 - Jonathan Taylor
- [link to the repo](https://github.com/Freatnor/Game-Stats-for-Dota2)
- also here's the link to the alpha build on store
- ![](https://play.google.com/store/apps/details?id=com.freatnor.game_stats_for_dota2)
+## Info for Game Stats for Dota 2 - Jonathan Taylor
+[link to the repo](https://github.com/Freatnor/Game-Stats-for-Dota2)
+also here's the link to the alpha build on store
+![](https://play.google.com/store/apps/details?id=com.freatnor.game_stats_for_dota2)
  
- To Note:
- inside the app you'll need a few accounts to test with. Go ahead and use these for now:
- username - 64id - 32id
- freatnor - 76561198029057889 - 68792161
- rme - 76561197972714345 - 12448617
- fountains - 76561198026277010 - 66011282
+To Note:
+inside the app you'll need a few accounts to test with. Go ahead and use these for now:
+username - 64id - 32id
+freatnor - 76561198029057889 - 68792161
+rme - 76561197972714345 - 12448617
+fountains - 76561198026277010 - 66011282
  
- any steam accounts you have should work though they need to have games to see any
+any steam accounts you have should work though they need to have games to see any
  
- ---
+---
 
 ### Technical Requirements
 
