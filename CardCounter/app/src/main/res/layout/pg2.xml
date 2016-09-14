@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <TextView
+        android:id="@+id/headline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi-Lo"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#6E2626"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/firstPara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  The basic strategy most card counters start learning is called High-Low or Hi-Lo. This strategy involves assigning each card a value based on its face value. The values are as follows:"
+        android:textSize="15dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#6E2626"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:layout_below="@+id/headline"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp" />
+
+    <LinearLayout
+        android:id="@+id/set1"
+        android:layout_below="@id/firstPara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cards with value 2-6 are assigned a value of +1"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical" />
+
+        <FrameLayout
+            android:id="@+id/cards"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
+
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/two"
+                android:src="@mipmap/d2"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/three"
+                android:src="@mipmap/c3"
+                android:layout_marginLeft="20dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/four"
+                android:src="@mipmap/h4"
+                android:layout_marginLeft="40dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/five"
+                android:src="@mipmap/s5"
+                android:layout_marginLeft="60dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/six"
+                android:src="@mipmap/d6"
+                android:layout_marginLeft="80dp"
+                android:elevation="2dp" />
+
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set2"
+        android:layout_below="@id/set1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cards with value 7-9 are assigned a value of 0"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView2"
+                android:src="@mipmap/c7"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView3"
+                android:src="@mipmap/h8"
+                android:layout_marginLeft="40dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView4"
+                android:src="@mipmap/s9"
+                android:layout_marginLeft="80dp"
+                android:elevation="2dp" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set3"
+        android:layout_below="@id/set2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cards with value 10-A are assigned a value of -1"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#6E2626"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="4"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView5"
+                android:src="@mipmap/d0"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView6"
+                android:src="@mipmap/jc"
+                android:layout_marginLeft="20dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView7"
+                android:src="@mipmap/qh"
+                android:layout_marginLeft="40dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView8"
+                android:src="@mipmap/ks"
+                android:layout_marginLeft="60dp"
+                android:elevation="2dp" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:id="@+id/imageView9"
+                android:src="@mipmap/ad"
+                android:layout_marginLeft="80dp"
+                android:elevation="2dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

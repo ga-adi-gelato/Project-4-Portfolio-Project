@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <TextView
+        android:id="@+id/headline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Using the App"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#6E2626"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  You can practice your technique using the tools in this app. Counting Practice lets you sharpen your card counting ability. You will be shown a card for a short period of time, and you must adjust the running count based on the card's value. If you need help, you can show the actual count to compare your count. You can toggle the speed between slow and fast depending on your skill level. \n\tThe app also includes a BlackJack game. Use this to practice your card counting skills against a simulated dealer.
+ Hopefully you find this app useful. Good luck and play responsibly!"
+        android:textSize="18dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#6E2626"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:layout_below="@+id/headline"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp" />
+
+
+</RelativeLayout>
