@@ -10,13 +10,12 @@ From the shadows of the Dark Web, a citizen hacking tool has emerged: welcome to
 
 ### How To Play
 
-Your app must:
 
-To Play: 
-1. [Network Scan] to find devices in Cyber Space.
-2. [Port Scan] a targeted device to detect vulnerabilities.
-3. Execute a variety of [Utilities] and [Scripts] to modify the device's state.
-4. [Execute] a final hack to take the device offline.
+To Play: <br>
+1. [Network Scan] to find devices in Cyber Space. <br>
+2. [Port Scan] a targeted device to detect vulnerabilities. <br>
+3. Execute a variety of [Utilities] and [Scripts] to modify the device's state. <br>
+4. [Execute] a final hack to take the device offline. 
 
 
 ---
