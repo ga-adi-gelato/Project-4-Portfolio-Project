@@ -10,6 +10,23 @@ For this project, you'll be working on your own and using product development st
 
 ---
 
+ 
+ ## Info for Game Stats for Dota 2 - Jonathan Taylor
+ [link to the repo](https://github.com/Freatnor/Game-Stats-for-Dota2)
+ also here's the link to the alpha build on store
+ ![](https://play.google.com/store/apps/details?id=com.freatnor.game_stats_for_dota2)
+ 
+ To Note:
+ inside the app you'll need a few accounts to test with. Go ahead and use these for now:
+ username - 64id - 32id
+ freatnor - 76561198029057889 - 68792161
+ rme - 76561197972714345 - 12448617
+ fountains - 76561198026277010 - 66011282
+ 
+ any steam accounts you have should work though they need to have games to see any
+ 
+ ---
+
 ### Technical Requirements
 
 Your app must:
@@ -154,3 +171,6 @@ Create an app that makes finding an apartment or job easier. Maybe there is a wa
     **3** | _Exceeds expectations, you wonderful creature, you!_
 
  This will serve as a helpful overall gauge of whether you met the project goals, but __the more important scores are the individual ones__ above, which can help you identify where to focus your efforts for the next project!
+ 
+ 
+
