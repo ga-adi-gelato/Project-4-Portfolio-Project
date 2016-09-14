@@ -7,3 +7,5 @@ https://play.google.com/apps/testing/com.andersgpalm.travelapp
 
 
 There are problems with the reliability of the images due to an oversight of mine in some parameters and pre calls I have not made.
+
+There is a problem with Picasso not loading valid Urls
