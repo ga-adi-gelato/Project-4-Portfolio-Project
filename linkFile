@@ -9,3 +9,5 @@ https://play.google.com/apps/testing/com.andersgpalm.travelapp
 There are problems with the reliability of the images due to an oversight of mine in some parameters and pre calls I have not made.
 
 There is a problem with Picasso not loading valid Urls
+
+There is also currently no loading animation so please give it a second (around 10) when you long press the question mark
