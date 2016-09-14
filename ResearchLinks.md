@@ -16,4 +16,4 @@ Prototype
 
 Trello
 ======
-https://trello.com/b/v1BA7IXR/project-4-card-counting-trainer
+[Trello](https://trello.com/b/v1BA7IXR/project-4-card-counting-trainer)
