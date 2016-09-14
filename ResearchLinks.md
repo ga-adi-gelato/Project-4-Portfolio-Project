@@ -5,7 +5,7 @@ Research
 
 [Project Pitch Slide](https://docs.google.com/presentation/d/1RpSLanVuy69-HGnj_6fgL3lEXEgsA_-PiQ1lWWpJ-uU/edit?usp=sharing)
 
-[User Stories]()
+[User Stories](https://github.com/jrondina/Project-4-Portfolio-Project/blob/master/UserStories.md)
 
 Prototype
 =========
