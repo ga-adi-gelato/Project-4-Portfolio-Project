@@ -27,3 +27,5 @@ To Play: <br>
 The App is currently in Closed Alpha testing, with access restricted to a limited number of users on an invite-only basis. To request an invite, email the project's author, then procede to the link below to start your download:
 
 <a href="https://play.google.com/apps/testing/io.github.tuckingfypos.hackcess">View Hackcess Alpha Page on the Google Play Store.</a>
+
+<a href="https://github.com/TuckingFypos/hackcess">View the Repo on GitHub.</a>
