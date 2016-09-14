@@ -22,3 +22,9 @@ To Play:
 ---
 
 ***This is a Developer Alpha, opened to select individuals to test the game engine on a variety of mobile devices. All Tools and Abilities have been unlocked. Certain features are missing and may be added / removed at random by the developer. Graphics and gameplay are subject to change. The app may crash or become unresponsive.***
+
+---
+
+The App is currently in Closed Alpha testing, with access restricted to a limited number of users on an invite-only basis. To request an invite, email the project's author, then procede to the link below to start your download:
+
+<a href="https://play.google.com/apps/testing/io.github.tuckingfypos.hackcess">View Hackcess Alpha Page on the Google Play Store.</a>
